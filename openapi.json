@@ -1,0 +1,2453 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TypeCombinator Complex",
+    "description": "Testing all the complex cases such as:\n- Scalar (inner/outer arrayOfMaps/mapofArrays)\n- Non-Scalar (inner/outer arrayOfMaps/mapofArrays)\n- Mix of Both\n- MultiLevel oneOf/anyOf\nIN following:\n- Model Properties (optional, required, nullable, optional-nullable)\n- Endpoint Params (Query, Form, Body(WrapBodyInObject (true,false)), Template)(CollectParameters(true,false))\n- Endpoint's response",
+    "contact": {},
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://enehkteyzt55p.x.pipedream.net/{subUrl}",
+      "variables": {
+        "subUrl": {
+          "default": "multitype/complex"
+        }
+      }
+    },
+    {
+      "url": "http://localhost:3000/{subUrl}",
+      "variables": {
+        "subUrl": {
+          "default": "multitype/complex"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/send/params/{template}": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send Params",
+        "operationId": "SendParams",
+        "parameters": [
+          {
+            "name": "template",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              ]
+            }
+          },
+          {
+            "name": "queryScalar",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "nullable": true
+                    }
+                  ]
+                },
+                "nullable": true
+              },
+              "nullable": true
+            }
+          },
+          {
+            "name": "queryNonScalar",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Atom"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "header",
+            "in": "header",
+            "description": "",
+            "style": "simple",
+            "schema": {
+              "oneOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  ]
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "nullable": true
+                }
+              ],
+              "nullable": true
+            }
+          },
+          {
+            "name": "queryMixed",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Vehicle"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "formScalar",
+                  "formNonScalar"
+                ],
+                "type": "object",
+                "properties": {
+                  "formScalar": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "oneOf": [
+                          {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "nullable": true
+                          }
+                        ]
+                      },
+                      "nullable": true
+                    },
+                    "description": "",
+                    "nullable": true
+                  },
+                  "formNonScalar": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Atom"
+                          }
+                        },
+                        {
+                          "$ref": "#/components/schemas/Atom"
+                        }
+                      ]
+                    }
+                  },
+                  "formMixed": {
+                    "oneOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/components/schemas/Vehicle"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/collectparams/{template}": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send CollectParams",
+        "operationId": "SendCollectParams",
+        "parameters": [
+          {
+            "name": "template",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              ]
+            }
+          },
+          {
+            "name": "queryScalar",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "nullable": true
+                    }
+                  ]
+                },
+                "nullable": true
+              },
+              "nullable": true
+            }
+          },
+          {
+            "name": "queryNonScalar",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Atom"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "header",
+            "in": "header",
+            "description": "",
+            "style": "simple",
+            "schema": {
+              "oneOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  ]
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "nullable": true
+                }
+              ],
+              "nullable": true
+            }
+          },
+          {
+            "name": "queryMixed",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Vehicle"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "formScalar",
+                  "formNonScalar"
+                ],
+                "type": "object",
+                "properties": {
+                  "formScalar": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "oneOf": [
+                          {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "nullable": true
+                          }
+                        ]
+                      },
+                      "nullable": true
+                    },
+                    "description": "",
+                    "nullable": true
+                  },
+                  "formNonScalar": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Atom"
+                          }
+                        },
+                        {
+                          "$ref": "#/components/schemas/Atom"
+                        }
+                      ]
+                    }
+                  },
+                  "formMixed": {
+                    "oneOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/components/schemas/Vehicle"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/scalarparam": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send ScalarParam",
+        "operationId": "SendScalarParam",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "nullable": true
+                      }
+                    ]
+                  },
+                  "nullable": true
+                },
+                "description": "",
+                "nullable": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/nonscalarparam": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send NonScalarParam",
+        "operationId": "SendNonScalarParam",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Atom"
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/Atom"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/mixedparam": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send MixedParam",
+        "operationId": "SendMixedParam",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "text/plain": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/Vehicle"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/combined": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send Combined",
+        "operationId": "SendCombined",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendCombined_RequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/collectcombined": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send CollectCombined",
+        "operationId": "SendCollectCombined",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendCollectCombined_RequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/model": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send in ModelParams",
+        "operationId": "SendinModelParams",
+        "parameters": [
+          {
+            "name": "queryScalarModel",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/ScalarModel"
+            }
+          },
+          {
+            "name": "queryNonScalarModel",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/NonScalarModel"
+            }
+          },
+          {
+            "name": "queryMixedModel",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/MixedModel"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formScalarModel": {
+                    "$ref": "#/components/schemas/ScalarModel"
+                  },
+                  "formNonScalarModel": {
+                    "$ref": "#/components/schemas/NonScalarModel"
+                  },
+                  "formMixedModel": {
+                    "$ref": "#/components/schemas/MixedModel"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/send/model/body": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "summary": "Send in Model",
+        "operationId": "SendinModel",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendinModel_RequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get/scalarparam": {
+      "get": {
+        "tags": [
+          "Receiver"
+        ],
+        "summary": "ScalarParam",
+        "operationId": "ScalarParam",
+        "parameters": [
+          {
+            "name": "case",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/CaseEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "nullable": true
+                        }
+                      ]
+                    },
+                    "nullable": true
+                  },
+                  "nullable": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get/nonscalarparam": {
+      "get": {
+        "tags": [
+          "Receiver"
+        ],
+        "summary": "NonScalarParam",
+        "operationId": "NonScalarParam",
+        "parameters": [
+          {
+            "name": "case",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/CaseEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/Atom"
+                        }
+                      },
+                      {
+                        "$ref": "#/components/schemas/Atom"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get/mixedparam": {
+      "get": {
+        "tags": [
+          "Receiver"
+        ],
+        "summary": "MixedParam",
+        "operationId": "MixedParam",
+        "parameters": [
+          {
+            "name": "case",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/CaseEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "$ref": "#/components/schemas/Vehicle"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get/scalarmodel": {
+      "get": {
+        "tags": [
+          "Receiver"
+        ],
+        "summary": "ScalarModel",
+        "operationId": "ScalarModel",
+        "parameters": [
+          {
+            "name": "case",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/CaseEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScalarModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get/nonscalarmodel": {
+      "get": {
+        "tags": [
+          "Receiver"
+        ],
+        "summary": "NonScalarModel",
+        "operationId": "NonScalarModel",
+        "parameters": [
+          {
+            "name": "case",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/CaseEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NonScalarModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/get/mixedmodel": {
+      "get": {
+        "tags": [
+          "Receiver"
+        ],
+        "summary": "MixedModel",
+        "operationId": "MixedModel",
+        "parameters": [
+          {
+            "name": "case",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/CaseEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MixedModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ScalarModel": {
+        "title": "ScalarModel",
+        "required": [
+          "multiAnyOf",
+          "multiOneOfAnyOf",
+          "singleInnerMapOfArray",
+          "outerMapOfSingleInnerArray",
+          "allInnerArrayOfMap",
+          "allInnerArrayOfMap2"
+        ],
+        "type": "object",
+        "properties": {
+          "multiAnyOf": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "type": "integer",
+                "format": "int32"
+              }
+            ]
+          },
+          "multiOneOfAnyOf": {
+            "oneOf": [
+              {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                ]
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "singleInnerMapOfArray": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                }
+              }
+            ]
+          },
+          "outerMapOfSingleInnerArray": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            }
+          },
+          "allInnerArrayOfMap": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "nullable": true
+              }
+            ]
+          },
+          "allInnerArrayOfMap2": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "nullable": true
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "outerArrayOfMap": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "outerArrayOfMap2": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "outerMapOfArray": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "description": "",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "outerMapOfArray2": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "boolean"
+                    }
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "description": "",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "description": "This class contains scalar types in oneOf/anyOf cases."
+      },
+      "NonScalarModel": {
+        "title": "NonScalarModel",
+        "required": [
+          "multiAnyOf",
+          "multiOneOfAnyOf",
+          "singleInnerMapOfArray",
+          "outerMapOfSingleInnerArray",
+          "allInnerArrayOfMap",
+          "allInnerArrayOfMap2"
+        ],
+        "type": "object",
+        "properties": {
+          "multiAnyOf": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Car"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                ]
+              },
+              {
+                "$ref": "#/components/schemas/Morning"
+              }
+            ]
+          },
+          "multiOneOfAnyOf": {
+            "oneOf": [
+              {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Car"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                ]
+              },
+              {
+                "$ref": "#/components/schemas/Morning"
+              }
+            ]
+          },
+          "singleInnerMapOfArray": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Atom"
+                }
+              }
+            ]
+          },
+          "outerMapOfSingleInnerArray": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/Atom"
+                }
+              ]
+            }
+          },
+          "allInnerArrayOfMap": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Orbit"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              },
+              {
+                "nullable": true
+              }
+            ]
+          },
+          "allInnerArrayOfMap2": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Orbit"
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Vehicle"
+                    }
+                  }
+                },
+                {
+                  "nullable": true
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "outerArrayOfMap": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Car"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Morning"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "outerArrayOfMap2": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Car"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Morning"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Atom"
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "outerMapOfArray": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Morning"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Evening"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Noon"
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "description": "",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "outerMapOfArray2": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Morning"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Evening"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Noon"
+                    }
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "description": "",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "description": "This class contains non scalar types in oneOf/anyOf cases."
+      },
+      "MixedModel": {
+        "title": "MixedModel",
+        "required": [
+          "multiAnyOf",
+          "multiOneOfAnyOf",
+          "singleInnerMapOfArray",
+          "outerMapOfSingleInnerArray",
+          "allInnerArrayOfMap",
+          "allInnerArrayOfMap2"
+        ],
+        "type": "object",
+        "properties": {
+          "multiAnyOf": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Car"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "$ref": "#/components/schemas/Morning"
+              }
+            ]
+          },
+          "multiOneOfAnyOf": {
+            "oneOf": [
+              {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Car"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "$ref": "#/components/schemas/Morning"
+              }
+            ]
+          },
+          "singleInnerMapOfArray": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Orbit"
+                }
+              }
+            ]
+          },
+          "outerMapOfSingleInnerArray": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/Orbit"
+                }
+              ]
+            }
+          },
+          "allInnerArrayOfMap": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              },
+              {
+                "nullable": true
+              }
+            ]
+          },
+          "allInnerArrayOfMap2": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Vehicle"
+                    }
+                  }
+                },
+                {
+                  "nullable": true
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "outerArrayOfMap": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Car"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Morning"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "outerArrayOfMap2": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Car"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Morning"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "outerMapOfArray": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Postman"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Person"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "description": "",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "outerMapOfArray2": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Postman"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Person"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "description": "",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "description": "This class contains mix of scalar and non scalar types in oneOf/anyOf cases."
+      },
+      "Atom": {
+        "title": "Atom",
+        "required": [
+          "NumberOfElectrons"
+        ],
+        "type": "object",
+        "properties": {
+          "NumberOfElectrons": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NumberOfProtons": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Orbit": {
+        "title": "Orbit",
+        "required": [
+          "NumberOfElectrons"
+        ],
+        "type": "object",
+        "properties": {
+          "NumberOfElectrons": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Vehicle": {
+        "title": "Vehicle",
+        "required": [
+          "NumberOfTyres"
+        ],
+        "type": "object",
+        "properties": {
+          "NumberOfTyres": {
+            "type": "string"
+          }
+        }
+      },
+      "Car": {
+        "title": "Car",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Vehicle"
+          },
+          {
+            "required": [
+              "HaveTrunk"
+            ],
+            "type": "object",
+            "properties": {
+              "HaveTrunk": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "Morning": {
+        "title": "Morning",
+        "required": [
+          "startsAt",
+          "endsAt",
+          "offerTeaBreak",
+          "sessionType"
+        ],
+        "type": "object",
+        "properties": {
+          "startsAt": {
+            "type": "string",
+            "description": "Session start time"
+          },
+          "endsAt": {
+            "type": "string",
+            "description": "Session end time"
+          },
+          "offerTeaBreak": {
+            "type": "boolean",
+            "description": "Offer tea break during session"
+          },
+          "sessionType": {
+            "type": "string"
+          }
+        },
+        "description": "Course morning session",
+        "discriminator": {
+          "propertyName": "sessionType"
+        }
+      },
+      "Evening": {
+        "title": "Evening",
+        "required": [
+          "startsAt",
+          "endsAt",
+          "offerDinner",
+          "sessionType"
+        ],
+        "type": "object",
+        "properties": {
+          "startsAt": {
+            "type": "string",
+            "description": "Session start time"
+          },
+          "endsAt": {
+            "type": "string",
+            "description": "Session end time"
+          },
+          "offerDinner": {
+            "type": "boolean",
+            "description": "Offer dinner during session"
+          },
+          "sessionType": {
+            "type": "string"
+          }
+        },
+        "description": "Course evening session",
+        "discriminator": {
+          "propertyName": "sessionType"
+        }
+      },
+      "Noon": {
+        "title": "Noon",
+        "required": [
+          "startsAt",
+          "endsAt",
+          "offerLunch",
+          "sessionType"
+        ],
+        "type": "object",
+        "properties": {
+          "startsAt": {
+            "type": "string",
+            "description": "Session start time"
+          },
+          "endsAt": {
+            "type": "string",
+            "description": "Session end time"
+          },
+          "offerLunch": {
+            "type": "boolean",
+            "description": "Offer lunch during session"
+          },
+          "sessionType": {
+            "type": "string"
+          }
+        },
+        "description": "Course noon session",
+        "discriminator": {
+          "propertyName": "sessionType"
+        }
+      },
+      "Days": {
+        "title": "Days",
+        "enum": [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "type": "string",
+        "description": "A string enum representing days of the week"
+      },
+      "CaseEnum": {
+        "title": "CaseEnum",
+        "enum": [
+          "caseA",
+          "caseB"
+        ],
+        "type": "string",
+        "description": "An enum representing what case to receive in receiver endpoints"
+      },
+      "Person": {
+        "title": "Person",
+        "required": [
+          "address",
+          "age",
+          "birthday",
+          "birthtime",
+          "name",
+          "uid",
+          "personType"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date"
+          },
+          "birthtime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          },
+          "personType": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "personType",
+          "mapping": {
+            "Empl": "Employee",
+            "Post": "Postman"
+          }
+        }
+      },
+      "Employee": {
+        "title": "Employee",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Person"
+          },
+          {
+            "required": [
+              "department",
+              "dependents",
+              "hiredAt",
+              "joiningDay",
+              "salary",
+              "workingDays"
+            ],
+            "type": "object",
+            "properties": {
+              "department": {
+                "type": "string"
+              },
+              "dependents": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Person"
+                },
+                "description": ""
+              },
+              "hiredAt": {
+                "type": "string",
+                "format": "date-time-rfc1123"
+              },
+              "joiningDay": {
+                "$ref": "#/components/schemas/Days"
+              },
+              "salary": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "workingDays": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Days"
+                },
+                "description": ""
+              },
+              "boss": {
+                "$ref": "#/components/schemas/Person"
+              }
+            }
+          }
+        ]
+      },
+      "Postman": {
+        "title": "Postman",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Person"
+          },
+          {
+            "required": [
+              "department",
+              "dependents",
+              "hiredAt",
+              "joiningDay",
+              "salary",
+              "workingDays"
+            ],
+            "type": "object",
+            "properties": {
+              "department": {
+                "type": "string"
+              },
+              "dependents": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Person"
+                },
+                "description": ""
+              },
+              "hiredAt": {
+                "type": "string",
+                "format": "date-time-rfc1123"
+              },
+              "joiningDay": {
+                "$ref": "#/components/schemas/Days"
+              },
+              "salary": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "workingDays": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Days"
+                },
+                "description": ""
+              }
+            }
+          }
+        ]
+      },
+      "ServerResponse": {
+        "title": "ServerResponse",
+        "required": [
+          "passed"
+        ],
+        "type": "object",
+        "properties": {
+          "passed": {
+            "type": "boolean"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "input": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "SendCombined_RequestBody": {
+        "title": "SendCombined_RequestBody",
+        "required": [
+          "bodyScalar",
+          "bodyNonScalar"
+        ],
+        "type": "object",
+        "properties": {
+          "bodyScalar": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "nullable": true
+            },
+            "description": "",
+            "nullable": true
+          },
+          "bodyNonScalar": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/Atom"
+                }
+              ]
+            }
+          },
+          "bodyMixed": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "SendCollectCombined_RequestBody": {
+        "title": "SendCollectCombined_RequestBody",
+        "required": [
+          "bodyScalar",
+          "bodyNonScalar"
+        ],
+        "type": "object",
+        "properties": {
+          "bodyScalar": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "nullable": true
+                  }
+                ]
+              },
+              "nullable": true
+            },
+            "description": "",
+            "nullable": true
+          },
+          "bodyNonScalar": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Atom"
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/Atom"
+                }
+              ]
+            }
+          },
+          "bodyMixed": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "SendinModel_RequestBody": {
+        "title": "SendinModel_RequestBody",
+        "required": [
+          "nonScalarModel",
+          "mixedModel"
+        ],
+        "type": "object",
+        "properties": {
+          "nonScalarModel": {
+            "$ref": "#/components/schemas/NonScalarModel"
+          },
+          "mixedModel": {
+            "$ref": "#/components/schemas/MixedModel"
+          },
+          "scalarModel": {
+            "$ref": "#/components/schemas/ScalarModel"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Sender",
+      "description": ""
+    },
+    {
+      "name": "Receiver",
+      "description": ""
+    }
+  ]
+}
