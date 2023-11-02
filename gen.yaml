@@ -1,15 +1,27 @@
 configVersion: 1.0.0
+management:
+  docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
+  docVersion: 1.0.0
+  speakeasyVersion: 1.111.1
+  generationVersion: 2.173.0
 generation:
   comments:
     disableComments: false
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
+  repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   sdkClassName: OAF-Complex
   singleTagPerOp: false
   tagNamespacingDisabled: false
+features:
+  csharp:
+    core: 2.93.0
+    globalServerURLs: 2.82.0
 csharp:
-  version: 0.0.1
+  version: 0.1.0
   author: Test
   dotnetVersion: net5.0
   maxMethodParams: 0
   packageName: OAF-Complex
+  published: true
+  repoSubDirectory: .
