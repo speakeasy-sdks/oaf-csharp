@@ -6,10 +6,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response

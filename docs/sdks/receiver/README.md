@@ -1,5 +1,5 @@
-# ReceiverSDK
-(*Receiver*)
+# Receiver
+(*.Receiver*)
 
 ### Available Operations
 
@@ -21,10 +21,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -53,10 +53,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedParamAsync(new MixedParamRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -85,10 +85,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.NonScalarModelAsync(new NonScalarModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseB,
+    Case = CaseEnum.CaseB,
 });
 
 // handle response
@@ -117,10 +117,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.NonScalarParamAsync(new NonScalarParamRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -149,10 +149,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.ScalarModelAsync(new ScalarModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseB,
+    Case = CaseEnum.CaseB,
 });
 
 // handle response
@@ -181,10 +181,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.ScalarParamAsync(new ScalarParamRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
