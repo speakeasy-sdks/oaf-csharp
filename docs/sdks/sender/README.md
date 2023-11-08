@@ -1,5 +1,5 @@
-# SenderSDK
-(*Sender*)
+# Sender
+(*.Sender*)
 
 ### Available Operations
 
@@ -19,8 +19,9 @@ Send CollectCombined
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendCollectCombinedAsync(new SendCollectCombinedRequestBody() {
     BodyMixed = new List<Dictionary<string, bool>>() {
@@ -62,8 +63,9 @@ Send Combined
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendCombinedAsync(new SendCombinedRequestBody() {
     BodyMixed = new List<Dictionary<string, bool>>() {
@@ -105,9 +107,9 @@ Send MixedParam
 ```csharp
 using OAFComplex;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
-var res = await sdk.Sender.SendMixedParamAsync("o`8muBH0+t as bytes <<<>>>");
+var res = await sdk.Sender.SendMixedParamAsync("0xCf5CD7932D as bytes <<<>>>");
 
 // handle response
 ```
@@ -133,7 +135,7 @@ Send NonScalarParam
 ```csharp
 using OAFComplex;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendNonScalarParamAsync(new Dictionary<string, object>() {
     { "key", "string" },
@@ -163,7 +165,7 @@ Send ScalarParam
 ```csharp
 using OAFComplex;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendScalarParamAsync(new List<Dictionary<string, object>>() {
     new Dictionary<string, object>() {
@@ -195,8 +197,9 @@ Send in Model
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendinModelAsync(new SendinModelRequestBody() {
     MixedModel = new MixedModel() {

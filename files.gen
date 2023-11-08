@@ -1,6 +1,6 @@
 OAFComplex/Receiver.cs
 OAFComplex/Sender.cs
-OAFComplex/OAFComplexSDK.cs
+OAFComplex/OAFComplex.cs
 OAFComplex/Utils/BigIntSerializer.cs
 OAFComplex/Utils/DecimalSerializer.cs
 OAFComplex/Utils/EnumSerializer.cs
@@ -38,7 +38,7 @@ OAFComplex/Models/Shared/Car.cs
 OAFComplex/Models/Shared/CaseEnum.cs
 OAFComplex/Models/Shared/NonScalarModel.cs
 OAFComplex/Models/Shared/ScalarModel.cs
-OAFComplex/Models/Shared/ServerResponseInput.cs
+OAFComplex/Models/Shared/Input.cs
 OAFComplex/Models/Shared/ServerResponse.cs
 OAFComplex/Models/Shared/SendCollectCombinedRequestBody.cs
 OAFComplex/Models/Shared/SendCombinedRequestBody.cs
@@ -67,7 +67,7 @@ docs/models/shared/Car.md
 docs/models/shared/CaseEnum.md
 docs/models/shared/NonScalarModel.md
 docs/models/shared/ScalarModel.md
-docs/models/shared/ServerResponseInput.md
+docs/models/shared/Input.md
 docs/models/shared/ServerResponse.md
 docs/models/shared/SendCollectCombinedRequestBody.md
 docs/models/shared/SendCombinedRequestBody.md
