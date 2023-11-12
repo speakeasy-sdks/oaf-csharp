@@ -1,4 +1,4 @@
-# SenderSDK
+# Sender
 (*Sender*)
 
 ### Available Operations
@@ -19,8 +19,9 @@ Send CollectCombined
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendCollectCombinedAsync(new SendCollectCombinedRequestBody() {
     BodyMixed = new List<Dictionary<string, bool>>() {
@@ -45,12 +46,12 @@ var res = await sdk.Sender.SendCollectCombinedAsync(new SendCollectCombinedReque
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [SendCollectCombinedRequestBody](../../models/shared/SendCollectCombinedRequestBody.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `request`                                                                               | [SendCollectCombinedRequestBody](../../Models/Shared/SendCollectCombinedRequestBody.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[SendCollectCombinedResponse](../../models/operations/SendCollectCombinedResponse.md)**
+**[SendCollectCombinedResponse](../../Models/Operations/SendCollectCombinedResponse.md)**
 
 
 ## SendCombined
@@ -62,8 +63,9 @@ Send Combined
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendCombinedAsync(new SendCombinedRequestBody() {
     BodyMixed = new List<Dictionary<string, bool>>() {
@@ -88,12 +90,12 @@ var res = await sdk.Sender.SendCombinedAsync(new SendCombinedRequestBody() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [SendCombinedRequestBody](../../models/shared/SendCombinedRequestBody.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [SendCombinedRequestBody](../../Models/Shared/SendCombinedRequestBody.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[SendCombinedResponse](../../models/operations/SendCombinedResponse.md)**
+**[SendCombinedResponse](../../Models/Operations/SendCombinedResponse.md)**
 
 
 ## SendMixedParam
@@ -105,9 +107,9 @@ Send MixedParam
 ```csharp
 using OAFComplex;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
-var res = await sdk.Sender.SendMixedParamAsync("o`8muBH0+t as bytes <<<>>>");
+var res = await sdk.Sender.SendMixedParamAsync("0xCf5CD7932D as bytes <<<>>>");
 
 // handle response
 ```
@@ -121,7 +123,7 @@ var res = await sdk.Sender.SendMixedParamAsync("o`8muBH0+t as bytes <<<>>>");
 
 ### Response
 
-**[SendMixedParamResponse](../../models/operations/SendMixedParamResponse.md)**
+**[SendMixedParamResponse](../../Models/Operations/SendMixedParamResponse.md)**
 
 
 ## SendNonScalarParam
@@ -133,7 +135,7 @@ Send NonScalarParam
 ```csharp
 using OAFComplex;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendNonScalarParamAsync(new Dictionary<string, object>() {
     { "key", "string" },
@@ -151,7 +153,7 @@ var res = await sdk.Sender.SendNonScalarParamAsync(new Dictionary<string, object
 
 ### Response
 
-**[SendNonScalarParamResponse](../../models/operations/SendNonScalarParamResponse.md)**
+**[SendNonScalarParamResponse](../../Models/Operations/SendNonScalarParamResponse.md)**
 
 
 ## SendScalarParam
@@ -163,7 +165,7 @@ Send ScalarParam
 ```csharp
 using OAFComplex;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendScalarParamAsync(new List<Dictionary<string, object>>() {
     new Dictionary<string, object>() {
@@ -183,7 +185,7 @@ var res = await sdk.Sender.SendScalarParamAsync(new List<Dictionary<string, obje
 
 ### Response
 
-**[SendScalarParamResponse](../../models/operations/SendScalarParamResponse.md)**
+**[SendScalarParamResponse](../../Models/Operations/SendScalarParamResponse.md)**
 
 
 ## SendinModel
@@ -195,8 +197,9 @@ Send in Model
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Sender.SendinModelAsync(new SendinModelRequestBody() {
     MixedModel = new MixedModel() {
@@ -316,10 +319,10 @@ var res = await sdk.Sender.SendinModelAsync(new SendinModelRequestBody() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [SendinModelRequestBody](../../models/shared/SendinModelRequestBody.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [SendinModelRequestBody](../../Models/Shared/SendinModelRequestBody.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[SendinModelResponse](../../models/operations/SendinModelResponse.md)**
+**[SendinModelResponse](../../Models/Operations/SendinModelResponse.md)**
 
