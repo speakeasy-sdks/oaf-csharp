@@ -20,7 +20,7 @@ namespace OAFComplex.Models.Shared
         public string? Message { get; set; }
 
         [JsonProperty("input")]
-        public Dictionary<string, ServerResponseInput>? Input { get; set; }
+        public Dictionary<string, Input>? Input { get; set; }
 
         [JsonProperty("passed")]
         public bool Passed { get; set; } = default!;
