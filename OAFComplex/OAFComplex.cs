@@ -30,10 +30,10 @@ namespace OAFComplex
     /// - Endpoint&apos;s response
     /// </remarks>
     /// </summary>
-    public interface IOAFComplexSDK
+    public interface IOAFComplex
     {
-        public IReceiverSDK Receiver { get; }
-        public ISenderSDK Sender { get; }
+        public IReceiver Receiver { get; }
+        public ISender Sender { get; }
     }
     
     public class SDKConfig
@@ -54,7 +54,7 @@ namespace OAFComplex
     /// - Endpoint&apos;s response
     /// </remarks>
     /// </summary>
-    public class OAFComplexSDK: IOAFComplexSDK
+    public class OAFComplex: IOAFComplex
     {
         public SDKConfig Config { get; private set; }
         public static List<string> ServerList = new List<string>()
@@ -64,19 +64,19 @@ namespace OAFComplex
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "0.2.0";
+        private const string _sdkGenVersion = "2.189.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.173.0 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.189.1 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IReceiverSDK Receiver { get; private set; }
-        public ISenderSDK Sender { get; private set; }
+        public IReceiver Receiver { get; private set; }
+        public ISender Sender { get; private set; }
 
-        public OAFComplexSDK(string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public OAFComplex(string? serverUrl = null, ISpeakeasyHttpClient? client = null)
         {
-            _serverUrl = serverUrl ?? OAFComplexSDK.ServerList[0];
+            _serverUrl = serverUrl ?? OAFComplex.ServerList[0];
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
@@ -85,8 +85,8 @@ namespace OAFComplex
             {
             };
 
-            Receiver = new ReceiverSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Sender = new SenderSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Receiver = new Receiver(_defaultClient, _securityClient, _serverUrl, Config);
+            Sender = new Sender(_defaultClient, _securityClient, _serverUrl, Config);
         }
     }
 }
