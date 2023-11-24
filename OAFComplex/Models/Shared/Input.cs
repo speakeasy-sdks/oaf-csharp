@@ -11,7 +11,7 @@
 namespace OAFComplex.Models.Shared
 {
     
-    public class ServerResponseInput
+    public class Input
     {
     }
 }
