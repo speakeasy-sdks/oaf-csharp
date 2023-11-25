@@ -22,8 +22,6 @@ namespace OAFComplex.Models.Operations
         /// </summary>
         public string? ContentType { get; set; } = default!;
 
-        public Dictionary<string, object>? NonScalarParam200ApplicationJSONObject { get; set; }
-
         /// <summary>
         /// HTTP response status code for this operation
         /// </summary>
@@ -32,6 +30,8 @@ namespace OAFComplex.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
+
+        public Dictionary<string, object>? Object { get; set; }
     }
 }

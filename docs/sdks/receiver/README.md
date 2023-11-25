@@ -1,4 +1,4 @@
-# ReceiverSDK
+# Receiver
 (*Receiver*)
 
 ### Available Operations
@@ -21,10 +21,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -34,12 +34,12 @@ var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [MixedModelRequest](../../models/operations/MixedModelRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [MixedModelRequest](../../Models/Operations/MixedModelRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**[MixedModelResponse](../../models/operations/MixedModelResponse.md)**
+**[MixedModelResponse](../../Models/Operations/MixedModelResponse.md)**
 
 
 ## MixedParam
@@ -53,10 +53,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedParamAsync(new MixedParamRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -66,12 +66,12 @@ var res = await sdk.Receiver.MixedParamAsync(new MixedParamRequest() {
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [MixedParamRequest](../../models/operations/MixedParamRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [MixedParamRequest](../../Models/Operations/MixedParamRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**[MixedParamResponse](../../models/operations/MixedParamResponse.md)**
+**[MixedParamResponse](../../Models/Operations/MixedParamResponse.md)**
 
 
 ## NonScalarModel
@@ -85,10 +85,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.NonScalarModelAsync(new NonScalarModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseB,
+    Case = CaseEnum.CaseB,
 });
 
 // handle response
@@ -98,12 +98,12 @@ var res = await sdk.Receiver.NonScalarModelAsync(new NonScalarModelRequest() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [NonScalarModelRequest](../../models/operations/NonScalarModelRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [NonScalarModelRequest](../../Models/Operations/NonScalarModelRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[NonScalarModelResponse](../../models/operations/NonScalarModelResponse.md)**
+**[NonScalarModelResponse](../../Models/Operations/NonScalarModelResponse.md)**
 
 
 ## NonScalarParam
@@ -117,10 +117,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.NonScalarParamAsync(new NonScalarParamRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -130,12 +130,12 @@ var res = await sdk.Receiver.NonScalarParamAsync(new NonScalarParamRequest() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [NonScalarParamRequest](../../models/operations/NonScalarParamRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [NonScalarParamRequest](../../Models/Operations/NonScalarParamRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[NonScalarParamResponse](../../models/operations/NonScalarParamResponse.md)**
+**[NonScalarParamResponse](../../Models/Operations/NonScalarParamResponse.md)**
 
 
 ## ScalarModel
@@ -149,10 +149,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.ScalarModelAsync(new ScalarModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseB,
+    Case = CaseEnum.CaseB,
 });
 
 // handle response
@@ -162,12 +162,12 @@ var res = await sdk.Receiver.ScalarModelAsync(new ScalarModelRequest() {
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [ScalarModelRequest](../../models/operations/ScalarModelRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [ScalarModelRequest](../../Models/Operations/ScalarModelRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
 
-**[ScalarModelResponse](../../models/operations/ScalarModelResponse.md)**
+**[ScalarModelResponse](../../Models/Operations/ScalarModelResponse.md)**
 
 
 ## ScalarParam
@@ -181,10 +181,10 @@ using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.ScalarParamAsync(new ScalarParamRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
@@ -194,10 +194,10 @@ var res = await sdk.Receiver.ScalarParamAsync(new ScalarParamRequest() {
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [ScalarParamRequest](../../models/operations/ScalarParamRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [ScalarParamRequest](../../Models/Operations/ScalarParamRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
 
-**[ScalarParamResponse](../../models/operations/ScalarParamResponse.md)**
+**[ScalarParamResponse](../../Models/Operations/ScalarParamResponse.md)**
 
