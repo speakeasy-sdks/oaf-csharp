@@ -5,4 +5,4 @@
 
 | Field                                                           | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `Case`                                                          | [CaseEnum](../../models/shared/CaseEnum.md)                     | :heavy_check_mark:                                              | An enum representing what case to receive in receiver endpoints |
+| `Case`                                                          | [CaseEnum](../../Models/Shared/CaseEnum.md)                     | :heavy_check_mark:                                              | An enum representing what case to receive in receiver endpoints |
