@@ -14,40 +14,40 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/productionize-sdks/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
-<!-- Start SDK Installation -->
-# SDK Installation
+<!-- Start SDK Installation [installation] -->
+## SDK Installation
 
-## Nuget
+### Nuget
 
 ```bash
 dotnet add package OAF-Complex
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
 
+### Example
 
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
-# Available Resources and Operations
+<!-- Start Available Resources and Operations [operations] -->
+## Available Resources and Operations
 
-
-## [Receiver](docs/sdks/receiver/README.md)
+### [Receiver](docs/sdks/receiver/README.md)
 
 * [MixedModel](docs/sdks/receiver/README.md#mixedmodel) - MixedModel
 * [MixedParam](docs/sdks/receiver/README.md#mixedparam) - MixedParam
@@ -56,7 +56,7 @@ var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
 * [ScalarModel](docs/sdks/receiver/README.md#scalarmodel) - ScalarModel
 * [ScalarParam](docs/sdks/receiver/README.md#scalarparam) - ScalarParam
 
-## [Sender](docs/sdks/sender/README.md)
+### [Sender](docs/sdks/sender/README.md)
 
 * [SendCollectCombined](docs/sdks/sender/README.md#sendcollectcombined) - Send CollectCombined
 * [SendCombined](docs/sdks/sender/README.md#sendcombined) - Send Combined
@@ -64,13 +64,7 @@ var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
 * [SendNonScalarParam](docs/sdks/sender/README.md#sendnonscalarparam) - Send NonScalarParam
 * [SendScalarParam](docs/sdks/sender/README.md#sendscalarparam) - Send ScalarParam
 * [SendinModel](docs/sdks/sender/README.md#sendinmodel) - Send in Model
-<!-- End SDK Available Operations -->
-
-<!-- Start Dev Containers -->
-
-
-
-<!-- End Dev Containers -->
+<!-- End Available Resources and Operations [operations] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

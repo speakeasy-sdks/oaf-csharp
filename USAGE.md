@@ -1,17 +1,15 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```csharp
 using OAFComplex;
 using OAFComplex.Models.Operations;
 using OAFComplex.Models.Shared;
 
-var sdk = new OAFComplexSDK();
+var sdk = new OAFComplex();
 
 var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
+    Case = CaseEnum.CaseA,
 });
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
