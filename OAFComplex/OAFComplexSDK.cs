@@ -10,11 +10,14 @@
 #nullable enable
 namespace OAFComplex
 {
+    using Newtonsoft.Json;
     using OAFComplex.Utils;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System;
+
+
 
     /// <summary>
     /// TypeCombinator Complex: Testing all the complex cases such as:<br/>
@@ -32,12 +35,30 @@ namespace OAFComplex
     /// </summary>
     public interface IOAFComplexSDK
     {
-        public IReceiverSDK Receiver { get; }
-        public ISenderSDK Sender { get; }
+        public IReceiver Receiver { get; }
+        public ISender Sender { get; }
     }
     
     public class SDKConfig
     {
+        public static string[] ServerList = new string[]
+        {
+            "https://enehkteyzt55p.x.pipedream.net/{subUrl}",
+            "http://localhost:3000/{subUrl}",
+        };
+        /// Contains the list of servers available to the SDK
+        public string serverUrl = "";
+        public int serverIndex = 0;
+        public List<Dictionary<string, string>> ServerDefaults = new List<Dictionary<string, string>>();
+
+        public string GetTemplatedServerDetails()
+        {
+            if (!String.IsNullOrEmpty(this.serverUrl))
+            {
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+            }
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], this.ServerDefaults[this.serverIndex]);
+        }
     }
 
     /// <summary>
@@ -56,37 +77,50 @@ namespace OAFComplex
     /// </summary>
     public class OAFComplexSDK: IOAFComplexSDK
     {
-        public SDKConfig Config { get; private set; }
-        public static List<string> ServerList = new List<string>()
-        {
-            "https://enehkteyzt55p.x.pipedream.net/{subUrl}",
-            "http://localhost:3000/{subUrl}",
-        };
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "0.2.0";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.1.0 2.173.0 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.205.0 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IReceiverSDK Receiver { get; private set; }
-        public ISenderSDK Sender { get; private set; }
+        public IReceiver Receiver { get; private set; }
+        public ISender Sender { get; private set; }
 
-        public OAFComplexSDK(string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public OAFComplexSDK(int? serverIndex = null, string?  subUrl = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            _serverUrl = serverUrl ?? OAFComplexSDK.ServerList[0];
+            if (serverUrl != null) {
+                if (urlParams != null) {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
+                }
+                _serverUrl = serverUrl;
+            }
+            List<Dictionary<string, string>> serverDefaults = new List<Dictionary<string, string>>()
+            {
+                new Dictionary<string, string>()
+                {
+                    {"subUrl", subUrl == null ? "multitype/complex" : subUrl},
+                },
+                new Dictionary<string, string>()
+                {
+                    {"subUrl", subUrl == null ? "multitype/complex" : subUrl},
+                },
+            };
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
+                ServerDefaults = serverDefaults,
+                serverUrl = _serverUrl
             };
 
-            Receiver = new ReceiverSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Sender = new SenderSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Receiver = new Receiver(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Sender = new Sender(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

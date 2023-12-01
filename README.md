@@ -14,19 +14,20 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/productionize-sdks/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
-<!-- Start SDK Installation -->
-# SDK Installation
+<!-- Start SDK Installation [installation] -->
+## SDK Installation
 
-## Nuget
+### Nuget
 
 ```bash
 dotnet add package OAF-Complex
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
 
+### Example
 
 ```csharp
 using OAFComplex;
@@ -35,19 +36,20 @@ using OAFComplex.Models.Shared;
 
 var sdk = new OAFComplexSDK();
 
-var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
-    Case = OAFComplex.Models.Shared.CaseEnum.CaseA,
-});
+MixedModelRequest req = new MixedModelRequest() {
+    Case = CaseEnum.CaseA,
+};
+
+var res = await sdk.Receiver.MixedModelAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
-# Available Resources and Operations
+<!-- Start Available Resources and Operations [operations] -->
+## Available Resources and Operations
 
-
-## [Receiver](docs/sdks/receiver/README.md)
+### [Receiver](docs/sdks/receiver/README.md)
 
 * [MixedModel](docs/sdks/receiver/README.md#mixedmodel) - MixedModel
 * [MixedParam](docs/sdks/receiver/README.md#mixedparam) - MixedParam
@@ -56,7 +58,7 @@ var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
 * [ScalarModel](docs/sdks/receiver/README.md#scalarmodel) - ScalarModel
 * [ScalarParam](docs/sdks/receiver/README.md#scalarparam) - ScalarParam
 
-## [Sender](docs/sdks/sender/README.md)
+### [Sender](docs/sdks/sender/README.md)
 
 * [SendCollectCombined](docs/sdks/sender/README.md#sendcollectcombined) - Send CollectCombined
 * [SendCombined](docs/sdks/sender/README.md#sendcombined) - Send Combined
@@ -64,13 +66,33 @@ var res = await sdk.Receiver.MixedModelAsync(new MixedModelRequest() {
 * [SendNonScalarParam](docs/sdks/sender/README.md#sendnonscalarparam) - Send NonScalarParam
 * [SendScalarParam](docs/sdks/sender/README.md#sendscalarparam) - Send ScalarParam
 * [SendinModel](docs/sdks/sender/README.md#sendinmodel) - Send in Model
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://enehkteyzt55p.x.pipedream.net/{subUrl}` | `subUrl` (default is `multitype/complex`) |
+| 1 | `http://localhost:3000/{subUrl}` | `subUrl` (default is `multitype/complex`) |
 
 
 
-<!-- End Dev Containers -->
+#### Variables
+
+Some of the server options above contain variables. If you want to set the values of those variables, the following options are provided for doing so:
+ * `subUrl: string`
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
