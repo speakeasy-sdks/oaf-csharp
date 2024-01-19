@@ -56,4 +56,5 @@ namespace OAFComplex.Models.Shared
             throw new Exception($"Unknown value {value} for enum CaseEnum");
         }
     }
+
 }

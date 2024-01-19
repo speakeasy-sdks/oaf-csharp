@@ -4,15 +4,15 @@ management:
   docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 0.2.0
-  configChecksum: 389d6e018832d6dfa92fe615a1275d8e
+  generationVersion: 2.237.2
+  releaseVersion: 0.2.1
+  configChecksum: 5344f272617347993713d453f6066cde
   repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.0
+    core: 3.3.1
     globalServerURLs: 2.82.2
 generatedFiles:
   - OAFComplex/Receiver.cs
