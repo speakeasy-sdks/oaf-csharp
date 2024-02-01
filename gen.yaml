@@ -7,9 +7,10 @@ generation:
     nameResolutionDec2023: false
   baseServerURL: ""
 csharp:
-  version: 0.2.1
+  version: 0.3.0
   author: Test
   dotnetVersion: net5.0
+  flattenGlobalSecurity: false
   imports:
     option: openapi
     paths:

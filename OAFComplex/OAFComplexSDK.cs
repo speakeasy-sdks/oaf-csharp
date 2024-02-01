@@ -80,11 +80,12 @@ namespace OAFComplex
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.1";
-        private const string _sdkGenVersion = "2.237.2";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.245.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.1 2.237.2 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.245.1 1.0.0 OAF-Complex";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public IReceiver Receiver { get; private set; }
@@ -92,8 +93,15 @@ namespace OAFComplex
 
         public OAFComplexSDK(int? serverIndex = null, string?  subUrl = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            if (serverUrl != null) {
-                if (urlParams != null) {
+            if (serverIndex != null)
+            {
+                _serverIndex = serverIndex.Value;
+            }
+
+            if (serverUrl != null)
+            {
+                if (urlParams != null)
+                {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
                 _serverUrl = serverUrl;
@@ -112,10 +120,11 @@ namespace OAFComplex
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
-            
+
             SDKConfiguration = new SDKConfig()
             {
                 ServerDefaults = serverDefaults,
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 
