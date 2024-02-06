@@ -58,18 +58,16 @@ namespace OAFComplex
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.245.1";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.250.2";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.245.1 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.4.0 2.250.2 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
 
-        public Receiver(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Receiver(ISpeakeasyHttpClient defaultClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
@@ -85,7 +83,7 @@ namespace OAFComplex
             
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -103,16 +101,17 @@ namespace OAFComplex
                 {
                     response.MixedModel = JsonConvert.DeserializeObject<MixedModel>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<MixedParamResponse> MixedParamAsync(MixedParamRequest? request = null)
@@ -125,7 +124,7 @@ namespace OAFComplex
             
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -143,16 +142,17 @@ namespace OAFComplex
                 {
                     response.Maps = JsonConvert.DeserializeObject<List<Dictionary<string, bool>>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<NonScalarModelResponse> NonScalarModelAsync(NonScalarModelRequest? request = null)
@@ -165,7 +165,7 @@ namespace OAFComplex
             
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -183,16 +183,17 @@ namespace OAFComplex
                 {
                     response.NonScalarModel = JsonConvert.DeserializeObject<NonScalarModel>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<NonScalarParamResponse> NonScalarParamAsync(NonScalarParamRequest? request = null)
@@ -205,7 +206,7 @@ namespace OAFComplex
             
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -223,16 +224,17 @@ namespace OAFComplex
                 {
                     response.Object = JsonConvert.DeserializeObject<Dictionary<string, object>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ScalarModelResponse> ScalarModelAsync(ScalarModelRequest? request = null)
@@ -245,7 +247,7 @@ namespace OAFComplex
             
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -263,16 +265,17 @@ namespace OAFComplex
                 {
                     response.ScalarModel = JsonConvert.DeserializeObject<ScalarModel>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ScalarParamResponse> ScalarParamAsync(ScalarParamRequest? request = null)
@@ -285,7 +288,7 @@ namespace OAFComplex
             
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -303,16 +306,17 @@ namespace OAFComplex
                 {
                     response.Maps = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
     }
 }

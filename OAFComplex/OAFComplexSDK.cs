@@ -80,14 +80,13 @@ namespace OAFComplex
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.245.1";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.250.2";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.245.1 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.4.0 2.250.2 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
         public IReceiver Receiver { get; private set; }
         public ISender Sender { get; private set; }
 
@@ -119,7 +118,6 @@ namespace OAFComplex
             };
 
             _defaultClient = new SpeakeasyHttpClient(client);
-            _securityClient = _defaultClient;
 
             SDKConfiguration = new SDKConfig()
             {
@@ -128,8 +126,8 @@ namespace OAFComplex
                 serverUrl = _serverUrl
             };
 
-            Receiver = new Receiver(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Sender = new Sender(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Receiver = new Receiver(_defaultClient, _serverUrl, SDKConfiguration);
+            Sender = new Sender(_defaultClient, _serverUrl, SDKConfiguration);
         }
     }
 }

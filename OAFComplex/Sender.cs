@@ -58,18 +58,16 @@ namespace OAFComplex
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.245.1";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.250.2";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.245.1 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.4.0 2.250.2 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
 
-        public Sender(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Sender(ISpeakeasyHttpClient defaultClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
@@ -84,7 +82,7 @@ namespace OAFComplex
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
+            if (serializedBody == null)
             {
                 throw new ArgumentNullException("request body is required");
             }
@@ -94,7 +92,7 @@ namespace OAFComplex
             }
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -112,16 +110,17 @@ namespace OAFComplex
                 {
                     response.ServerResponse = JsonConvert.DeserializeObject<ServerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<SendCombinedResponse> SendCombinedAsync(SendCombinedRequestBody request)
@@ -133,7 +132,7 @@ namespace OAFComplex
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
+            if (serializedBody == null)
             {
                 throw new ArgumentNullException("request body is required");
             }
@@ -143,7 +142,7 @@ namespace OAFComplex
             }
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -161,16 +160,17 @@ namespace OAFComplex
                 {
                     response.ServerResponse = JsonConvert.DeserializeObject<ServerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<SendMixedParamResponse> SendMixedParamAsync(byte[]? request = null)
@@ -188,7 +188,7 @@ namespace OAFComplex
             }
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -206,16 +206,17 @@ namespace OAFComplex
                 {
                     response.ServerResponse = JsonConvert.DeserializeObject<ServerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<SendNonScalarParamResponse> SendNonScalarParamAsync(Dictionary<string, object> request)
@@ -227,7 +228,7 @@ namespace OAFComplex
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
+            if (serializedBody == null)
             {
                 throw new ArgumentNullException("request body is required");
             }
@@ -237,7 +238,7 @@ namespace OAFComplex
             }
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -255,16 +256,17 @@ namespace OAFComplex
                 {
                     response.ServerResponse = JsonConvert.DeserializeObject<ServerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<SendScalarParamResponse> SendScalarParamAsync(List<Dictionary<string, object>> request)
@@ -276,7 +278,7 @@ namespace OAFComplex
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
+            if (serializedBody == null)
             {
                 throw new ArgumentNullException("request body is required");
             }
@@ -286,7 +288,7 @@ namespace OAFComplex
             }
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -304,16 +306,17 @@ namespace OAFComplex
                 {
                     response.ServerResponse = JsonConvert.DeserializeObject<ServerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<SendinModelResponse> SendinModelAsync(SendinModelRequestBody request)
@@ -325,7 +328,7 @@ namespace OAFComplex
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
+            if (serializedBody == null)
             {
                 throw new ArgumentNullException("request body is required");
             }
@@ -335,7 +338,7 @@ namespace OAFComplex
             }
             
             var client = _defaultClient;
-            
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -353,16 +356,17 @@ namespace OAFComplex
                 {
                     response.ServerResponse = JsonConvert.DeserializeObject<ServerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400))
             {
-                
+
                 return response;
             }
             return response;
         }
+
         
     }
 }
