@@ -24,11 +24,6 @@ using System.Collections.Generic;
 var sdk = new OAFComplexSDK();
 
 SendCollectCombinedRequestBody req = new SendCollectCombinedRequestBody() {
-    BodyMixed = new List<Dictionary<string, bool>>() {
-        new Dictionary<string, bool>() {
-            { "key", false },
-        },
-    },
     BodyNonScalar = new Dictionary<string, object>() {
         { "key", "string" },
     },
@@ -70,11 +65,6 @@ using System.Collections.Generic;
 var sdk = new OAFComplexSDK();
 
 SendCombinedRequestBody req = new SendCombinedRequestBody() {
-    BodyMixed = new List<Dictionary<string, bool>>() {
-        new Dictionary<string, bool>() {
-            { "key", false },
-        },
-    },
     BodyNonScalar = new Dictionary<string, object>() {
         { "key", "string" },
     },
@@ -219,31 +209,6 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
         },
         MultiAnyOf = "string",
         MultiOneOfAnyOf = "string",
-        OuterArrayOfMap = new List<Dictionary<string, object>>() {
-            new Dictionary<string, object>() {
-                { "key", "string" },
-            },
-        },
-        OuterArrayOfMap2 = new List<Dictionary<string, List<Car>>>() {
-            new Dictionary<string, List<Car>>() {
-                { "key", new List<Car>() {
-                    new Car() {
-                        HaveTrunk = false,
-                        NumberOfTyres = "string",
-                    },
-                } },
-            },
-        },
-        OuterMapOfArray = new Dictionary<string, List<object>>() {
-            { "key", new List<object>() {
-                "string",
-            } },
-        },
-        OuterMapOfArray2 = new Dictionary<string, List<object>>() {
-            { "key", new List<object>() {
-                "string",
-            } },
-        },
         OuterMapOfSingleInnerArray = new Dictionary<string, object>() {
             { "key", "string" },
         },
@@ -256,65 +221,6 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
         },
         MultiAnyOf = "string",
         MultiOneOfAnyOf = "string",
-        OuterArrayOfMap = new List<Dictionary<string, object>>() {
-            new Dictionary<string, object>() {
-                { "key", "string" },
-            },
-        },
-        OuterArrayOfMap2 = new List<Dictionary<string, List<Car>>>() {
-            new Dictionary<string, List<Car>>() {
-                { "key", new List<Car>() {
-                    new Car() {
-                        HaveTrunk = false,
-                        NumberOfTyres = "string",
-                    },
-                } },
-            },
-        },
-        OuterMapOfArray = new Dictionary<string, List<object>>() {
-            { "key", new List<object>() {
-                "string",
-            } },
-        },
-        OuterMapOfArray2 = new Dictionary<string, List<object>>() {
-            { "key", new List<object>() {
-                "string",
-            } },
-        },
-        OuterMapOfSingleInnerArray = new Dictionary<string, object>() {
-            { "key", "string" },
-        },
-        SingleInnerMapOfArray = "string",
-    },
-    ScalarModel = new ScalarModel() {
-        AllInnerArrayOfMap = "string",
-        AllInnerArrayOfMap2 = new Dictionary<string, object>() {
-            { "key", "string" },
-        },
-        MultiAnyOf = "string",
-        MultiOneOfAnyOf = "string",
-        OuterArrayOfMap = new List<Dictionary<string, object>>() {
-            new Dictionary<string, object>() {
-                { "key", "string" },
-            },
-        },
-        OuterArrayOfMap2 = new List<Dictionary<string, List<int>>>() {
-            new Dictionary<string, List<int>>() {
-                { "key", new List<int>() {
-                    101696,
-                } },
-            },
-        },
-        OuterMapOfArray = new Dictionary<string, List<object>>() {
-            { "key", new List<object>() {
-                "string",
-            } },
-        },
-        OuterMapOfArray2 = new Dictionary<string, List<object>>() {
-            { "key", new List<object>() {
-                "string",
-            } },
-        },
         OuterMapOfSingleInnerArray = new Dictionary<string, object>() {
             { "key", "string" },
         },

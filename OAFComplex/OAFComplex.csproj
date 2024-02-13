@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>OAF-Complex</PackageId>
-    <Version>0.4.0</Version>
+    <Version>0.4.1</Version>
     <Authors>Test</Authors>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>

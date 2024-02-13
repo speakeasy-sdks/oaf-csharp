@@ -4,9 +4,9 @@ management:
   docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.250.2
-  releaseVersion: 0.4.0
-  configChecksum: c89b988b84e2d5b8c69b9074bbbf6259
+  generationVersion: 2.253.0
+  releaseVersion: 0.4.1
+  configChecksum: f804a4ca203198cc96023252ecb1ad41
   repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   repoSubDirectory: .
   published: true

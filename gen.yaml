@@ -6,9 +6,10 @@ generation:
   fixes:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
   baseServerURL: ""
 csharp:
-  version: 0.4.0
+  version: 0.4.1
   author: Test
   dotnetVersion: net5.0
   flattenGlobalSecurity: false
