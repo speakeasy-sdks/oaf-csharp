@@ -25,11 +25,11 @@ var sdk = new OAFComplexSDK();
 
 SendCollectCombinedRequestBody req = new SendCollectCombinedRequestBody() {
     BodyNonScalar = new Dictionary<string, object>() {
-        { "key", "string" },
+        { "key", "<value>" },
     },
     BodyScalar = new List<Dictionary<string, object>>() {
         new Dictionary<string, object>() {
-            { "key", "string" },
+            { "key", "<value>" },
         },
     },
 };
@@ -66,11 +66,11 @@ var sdk = new OAFComplexSDK();
 
 SendCombinedRequestBody req = new SendCombinedRequestBody() {
     BodyNonScalar = new Dictionary<string, object>() {
-        { "key", "string" },
+        { "key", "<value>" },
     },
     BodyScalar = new List<Dictionary<string, object>>() {
         new Dictionary<string, object>() {
-            { "key", "string" },
+            { "key", "<value>" },
         },
     },
 };
@@ -134,7 +134,7 @@ using OAFComplex;
 var sdk = new OAFComplexSDK();
 
 Dictionary<string, object> req = new Dictionary<string, object>() {
-    { "key", "string" },
+    { "key", "<value>" },
 };
 
 var res = await sdk.Sender.SendNonScalarParamAsync(req);
@@ -167,7 +167,7 @@ var sdk = new OAFComplexSDK();
 
 List<Dictionary<string, object>> req = new List<Dictionary<string, object>>() {
     new Dictionary<string, object>() {
-        { "key", "string" },
+        { "key", "<value>" },
     },
 };
 
@@ -203,28 +203,28 @@ var sdk = new OAFComplexSDK();
 
 SendinModelRequestBody req = new SendinModelRequestBody() {
     MixedModel = new MixedModel() {
-        AllInnerArrayOfMap = "string",
+        AllInnerArrayOfMap = "<value>",
         AllInnerArrayOfMap2 = new Dictionary<string, object>() {
-            { "key", "string" },
+            { "key", "<value>" },
         },
-        MultiAnyOf = "string",
-        MultiOneOfAnyOf = "string",
+        MultiAnyOf = "<value>",
+        MultiOneOfAnyOf = "<value>",
         OuterMapOfSingleInnerArray = new Dictionary<string, object>() {
-            { "key", "string" },
+            { "key", "<value>" },
         },
-        SingleInnerMapOfArray = "string",
+        SingleInnerMapOfArray = "<value>",
     },
     NonScalarModel = new NonScalarModel() {
-        AllInnerArrayOfMap = "string",
+        AllInnerArrayOfMap = "<value>",
         AllInnerArrayOfMap2 = new Dictionary<string, object>() {
-            { "key", "string" },
+            { "key", "<value>" },
         },
-        MultiAnyOf = "string",
-        MultiOneOfAnyOf = "string",
+        MultiAnyOf = "<value>",
+        MultiOneOfAnyOf = "<value>",
         OuterMapOfSingleInnerArray = new Dictionary<string, object>() {
-            { "key", "string" },
+            { "key", "<value>" },
         },
-        SingleInnerMapOfArray = "string",
+        SingleInnerMapOfArray = "<value>",
     },
 };
 
