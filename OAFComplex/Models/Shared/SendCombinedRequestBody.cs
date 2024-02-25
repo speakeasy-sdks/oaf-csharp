@@ -22,7 +22,7 @@ namespace OAFComplex.Models.Shared
         [JsonProperty("bodyNonScalar")]
         public Dictionary<string, object> BodyNonScalar { get; set; } = default!;
 
-        [JsonProperty("bodyScalar")]
-        public List<Dictionary<string, object>> BodyScalar { get; set; } = default!;
+        [JsonProperty("bodyScalar", NullValueHandling = NullValueHandling.Include)]
+        public List<Dictionary<string, object>>? BodyScalar { get; set; } = default!;
     }
 }
