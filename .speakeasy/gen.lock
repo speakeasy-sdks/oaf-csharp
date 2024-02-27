@@ -4,20 +4,21 @@ management:
   docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.258.0
-  releaseVersion: 0.4.2
-  configChecksum: 21f945119140082679215156f21f6fc5
+  generationVersion: 2.272.7
+  releaseVersion: 0.5.0
+  configChecksum: 24dcd073f33d92bd4733b0ddb7eb6284
   repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.2
+    core: 3.4.3
     globalServerURLs: 2.82.2
 generatedFiles:
   - OAFComplex/Receiver.cs
   - OAFComplex/Sender.cs
   - OAFComplex/OAFComplexSDK.cs
+  - global.json
   - OAFComplex/Utils/BigIntSerializer.cs
   - OAFComplex/Utils/DecimalSerializer.cs
   - OAFComplex/Utils/EnumSerializer.cs
