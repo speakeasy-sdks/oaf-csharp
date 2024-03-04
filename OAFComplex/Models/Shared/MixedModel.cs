@@ -19,11 +19,11 @@ namespace OAFComplex.Models.Shared
     public class MixedModel
     {
 
-        [JsonProperty("allInnerArrayOfMap")]
-        public object AllInnerArrayOfMap { get; set; } = default!;
+        [JsonProperty("allInnerArrayOfMap", NullValueHandling = NullValueHandling.Include)]
+        public object? AllInnerArrayOfMap { get; set; } = default!;
 
-        [JsonProperty("allInnerArrayOfMap2")]
-        public Dictionary<string, object> AllInnerArrayOfMap2 { get; set; } = default!;
+        [JsonProperty("allInnerArrayOfMap2", NullValueHandling = NullValueHandling.Include)]
+        public Dictionary<string, object>? AllInnerArrayOfMap2 { get; set; } = default!;
 
         [JsonProperty("multiAnyOf")]
         public object MultiAnyOf { get; set; } = default!;
