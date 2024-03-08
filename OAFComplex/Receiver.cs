@@ -26,42 +26,42 @@ namespace OAFComplex
         /// <summary>
         /// MixedModel
         /// </summary>
-        Task<MixedModelResponse> MixedModelAsync(MixedModelRequest? request = null);
+        Task<MixedModelResponse> MixedModelAsync(MixedModelRequest request);
 
         /// <summary>
         /// MixedParam
         /// </summary>
-        Task<MixedParamResponse> MixedParamAsync(MixedParamRequest? request = null);
+        Task<MixedParamResponse> MixedParamAsync(MixedParamRequest request);
 
         /// <summary>
         /// NonScalarModel
         /// </summary>
-        Task<NonScalarModelResponse> NonScalarModelAsync(NonScalarModelRequest? request = null);
+        Task<NonScalarModelResponse> NonScalarModelAsync(NonScalarModelRequest request);
 
         /// <summary>
         /// NonScalarParam
         /// </summary>
-        Task<NonScalarParamResponse> NonScalarParamAsync(NonScalarParamRequest? request = null);
+        Task<NonScalarParamResponse> NonScalarParamAsync(NonScalarParamRequest request);
 
         /// <summary>
         /// ScalarModel
         /// </summary>
-        Task<ScalarModelResponse> ScalarModelAsync(ScalarModelRequest? request = null);
+        Task<ScalarModelResponse> ScalarModelAsync(ScalarModelRequest request);
 
         /// <summary>
         /// ScalarParam
         /// </summary>
-        Task<ScalarParamResponse> ScalarParamAsync(ScalarParamRequest? request = null);
+        Task<ScalarParamResponse> ScalarParamAsync(ScalarParamRequest request);
     }
 
     public class Receiver: IReceiver
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.2";
-        private const string _sdkGenVersion = "2.258.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.279.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.4.2 2.258.0 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.5.0 2.279.1 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
 
@@ -71,30 +71,28 @@ namespace OAFComplex
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
-        
 
-        public async Task<MixedModelResponse> MixedModelAsync(MixedModelRequest? request = null)
+        public async Task<MixedModelResponse> MixedModelAsync(MixedModelRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/get/mixedmodel", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
 
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new MixedModelResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -104,6 +102,7 @@ namespace OAFComplex
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
 
@@ -112,30 +111,28 @@ namespace OAFComplex
             return response;
         }
 
-        
 
-        public async Task<MixedParamResponse> MixedParamAsync(MixedParamRequest? request = null)
+        public async Task<MixedParamResponse> MixedParamAsync(MixedParamRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/get/mixedparam", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
 
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new MixedParamResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -145,6 +142,7 @@ namespace OAFComplex
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
 
@@ -153,30 +151,28 @@ namespace OAFComplex
             return response;
         }
 
-        
 
-        public async Task<NonScalarModelResponse> NonScalarModelAsync(NonScalarModelRequest? request = null)
+        public async Task<NonScalarModelResponse> NonScalarModelAsync(NonScalarModelRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/get/nonscalarmodel", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
 
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new NonScalarModelResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -186,6 +182,7 @@ namespace OAFComplex
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
 
@@ -194,30 +191,28 @@ namespace OAFComplex
             return response;
         }
 
-        
 
-        public async Task<NonScalarParamResponse> NonScalarParamAsync(NonScalarParamRequest? request = null)
+        public async Task<NonScalarParamResponse> NonScalarParamAsync(NonScalarParamRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/get/nonscalarparam", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
 
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new NonScalarParamResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -227,6 +222,7 @@ namespace OAFComplex
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
 
@@ -235,30 +231,28 @@ namespace OAFComplex
             return response;
         }
 
-        
 
-        public async Task<ScalarModelResponse> ScalarModelAsync(ScalarModelRequest? request = null)
+        public async Task<ScalarModelResponse> ScalarModelAsync(ScalarModelRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/get/scalarmodel", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
 
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ScalarModelResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -268,6 +262,7 @@ namespace OAFComplex
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
 
@@ -276,30 +271,28 @@ namespace OAFComplex
             return response;
         }
 
-        
 
-        public async Task<ScalarParamResponse> ScalarParamAsync(ScalarParamRequest? request = null)
+        public async Task<ScalarParamResponse> ScalarParamAsync(ScalarParamRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/get/scalarparam", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
 
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ScalarParamResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -309,6 +302,7 @@ namespace OAFComplex
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
 
@@ -317,6 +311,5 @@ namespace OAFComplex
             return response;
         }
 
-        
     }
 }
