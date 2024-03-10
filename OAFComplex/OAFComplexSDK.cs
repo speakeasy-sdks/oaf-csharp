@@ -18,7 +18,6 @@ namespace OAFComplex
     using System;
 
 
-
     /// <summary>
     /// TypeCombinator Complex: Testing all the complex cases such as:<br/>
     /// 
@@ -38,15 +37,17 @@ namespace OAFComplex
         public IReceiver Receiver { get; }
         public ISender Sender { get; }
     }
-    
+
     public class SDKConfig
     {
-        public static string[] ServerList = new string[]
-        {
+        /// <summary>
+        /// List of server URLs available to the SDK.
+        /// </summary>
+        public static readonly string[] ServerList = {
             "https://enehkteyzt55p.x.pipedream.net/{subUrl}",
             "http://localhost:3000/{subUrl}",
         };
-        /// Contains the list of servers available to the SDK
+
         public string serverUrl = "";
         public int serverIndex = 0;
         public List<Dictionary<string, string>> ServerDefaults = new List<Dictionary<string, string>>();
@@ -80,10 +81,10 @@ namespace OAFComplex
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.2";
-        private const string _sdkGenVersion = "2.258.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.279.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.4.2 2.258.0 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.5.0 2.279.1 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -94,6 +95,10 @@ namespace OAFComplex
         {
             if (serverIndex != null)
             {
+                if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                }
                 _serverIndex = serverIndex.Value;
             }
 
