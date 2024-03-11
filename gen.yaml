@@ -7,9 +7,11 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   baseServerURL: ""
 csharp:
-  version: 0.4.2
+  version: 0.5.0
   author: Test
   dotnetVersion: net5.0
   flattenGlobalSecurity: false
