@@ -11,6 +11,7 @@
 namespace OAFComplex.Models.Shared
 {
     using Newtonsoft.Json;
+    using OAFComplex.Models.Shared;
     using System.Collections.Generic;
     
     /// <summary>
@@ -20,33 +21,33 @@ namespace OAFComplex.Models.Shared
     {
 
         [JsonProperty("allInnerArrayOfMap", NullValueHandling = NullValueHandling.Include)]
-        public object? AllInnerArrayOfMap { get; set; } = default!;
+        public NonScalarModelAllInnerArrayOfMap? AllInnerArrayOfMap { get; set; } = default!;
 
         [JsonProperty("allInnerArrayOfMap2", NullValueHandling = NullValueHandling.Include)]
-        public Dictionary<string, object>? AllInnerArrayOfMap2 { get; set; } = default!;
+        public Dictionary<string, NonScalarModelAllInnerArrayOfMap2>? AllInnerArrayOfMap2 { get; set; } = default!;
 
         [JsonProperty("multiAnyOf")]
-        public object MultiAnyOf { get; set; } = default!;
+        public NonScalarModelMultiAnyOf MultiAnyOf { get; set; } = default!;
 
         [JsonProperty("multiOneOfAnyOf")]
-        public object MultiOneOfAnyOf { get; set; } = default!;
+        public NonScalarModelMultiOneOfAnyOf MultiOneOfAnyOf { get; set; } = default!;
 
         [JsonProperty("outerArrayOfMap")]
-        public List<Dictionary<string, object>>? OuterArrayOfMap { get; set; }
+        public List<Dictionary<string, NonScalarModelOuterArrayOfMap>>? OuterArrayOfMap { get; set; }
 
         [JsonProperty("outerArrayOfMap2")]
         public List<Dictionary<string, List<Car>>>? OuterArrayOfMap2 { get; set; }
 
         [JsonProperty("outerMapOfArray")]
-        public Dictionary<string, List<object>>? OuterMapOfArray { get; set; }
+        public Dictionary<string, List<NonScalarModelOuterMapOfArray>>? OuterMapOfArray { get; set; }
 
         [JsonProperty("outerMapOfArray2")]
-        public Dictionary<string, List<object>>? OuterMapOfArray2 { get; set; }
+        public Dictionary<string, List<NonScalarModelOuterMapOfArray2>>? OuterMapOfArray2 { get; set; }
 
         [JsonProperty("outerMapOfSingleInnerArray")]
-        public Dictionary<string, object> OuterMapOfSingleInnerArray { get; set; } = default!;
+        public Dictionary<string, NonScalarModelOuterMapOfSingleInnerArray> OuterMapOfSingleInnerArray { get; set; } = default!;
 
         [JsonProperty("singleInnerMapOfArray")]
-        public object SingleInnerMapOfArray { get; set; } = default!;
+        public NonScalarModelSingleInnerMapOfArray SingleInnerMapOfArray { get; set; } = default!;
     }
 }

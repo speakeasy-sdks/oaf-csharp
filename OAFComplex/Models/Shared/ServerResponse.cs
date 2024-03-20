@@ -11,6 +11,7 @@
 namespace OAFComplex.Models.Shared
 {
     using Newtonsoft.Json;
+    using OAFComplex.Models.Shared;
     using System.Collections.Generic;
     
     public class ServerResponse

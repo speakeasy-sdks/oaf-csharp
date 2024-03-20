@@ -20,9 +20,9 @@ namespace OAFComplex.Models.Shared
         public List<Dictionary<string, bool>>? BodyMixed { get; set; }
 
         [JsonProperty("bodyNonScalar")]
-        public Dictionary<string, object> BodyNonScalar { get; set; } = default!;
+        public Dictionary<string, BodyNonScalar> BodyNonScalar { get; set; } = default!;
 
         [JsonProperty("bodyScalar", NullValueHandling = NullValueHandling.Include)]
-        public List<Dictionary<string, object>>? BodyScalar { get; set; } = default!;
+        public List<Dictionary<string, BodyScalar>>? BodyScalar { get; set; } = default!;
     }
 }

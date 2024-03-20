@@ -41,12 +41,12 @@ namespace OAFComplex
         /// <summary>
         /// Send NonScalarParam
         /// </summary>
-        Task<SendNonScalarParamResponse> SendNonScalarParamAsync(Dictionary<string, object> request);
+        Task<SendNonScalarParamResponse> SendNonScalarParamAsync(Dictionary<string, RequestBody> request);
 
         /// <summary>
         /// Send ScalarParam
         /// </summary>
-        Task<SendScalarParamResponse> SendScalarParamAsync(List<Dictionary<string, object>>? request = null);
+        Task<SendScalarParamResponse> SendScalarParamAsync(List<Dictionary<string, SendScalarParamRequestBody>>? request = null);
 
         /// <summary>
         /// Send in Model
@@ -58,10 +58,10 @@ namespace OAFComplex
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.279.1";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.283.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.5.0 2.279.1 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.6.0 2.283.1 1.0.0 OAF-Complex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
 
@@ -213,7 +213,7 @@ namespace OAFComplex
         }
 
 
-        public async Task<SendNonScalarParamResponse> SendNonScalarParamAsync(Dictionary<string, object> request)
+        public async Task<SendNonScalarParamResponse> SendNonScalarParamAsync(Dictionary<string, RequestBody> request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
 
@@ -260,7 +260,7 @@ namespace OAFComplex
         }
 
 
-        public async Task<SendScalarParamResponse> SendScalarParamAsync(List<Dictionary<string, object>>? request = null)
+        public async Task<SendScalarParamResponse> SendScalarParamAsync(List<Dictionary<string, SendScalarParamRequestBody>>? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
 

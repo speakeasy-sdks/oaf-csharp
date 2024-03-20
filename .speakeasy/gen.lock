@@ -3,10 +3,10 @@ id: 6e826e33-ae61-4b56-8740-6ce7a9c28f54
 management:
   docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
   docVersion: 1.0.0
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 0.5.0
-  configChecksum: 24dcd073f33d92bd4733b0ddb7eb6284
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.6.0
+  configChecksum: 70ba70b318407d0b1df043eec9e43162
   repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   repoSubDirectory: .
   published: true
@@ -14,6 +14,7 @@ features:
   csharp:
     core: 3.4.3
     globalServerURLs: 2.82.3
+    unions: 0.0.1
 generatedFiles:
   - OAFComplex/Receiver.cs
   - OAFComplex/Sender.cs
@@ -40,25 +41,75 @@ generatedFiles:
   - OAFComplex/Models/Operations/NonScalarModelRequest.cs
   - OAFComplex/Models/Operations/NonScalarModelResponse.cs
   - OAFComplex/Models/Operations/NonScalarParamRequest.cs
+  - OAFComplex/Models/Operations/ResponseBody.cs
   - OAFComplex/Models/Operations/NonScalarParamResponse.cs
   - OAFComplex/Models/Operations/ScalarModelRequest.cs
   - OAFComplex/Models/Operations/ScalarModelResponse.cs
   - OAFComplex/Models/Operations/ScalarParamRequest.cs
+  - OAFComplex/Models/Operations/ScalarParamResponseBody.cs
   - OAFComplex/Models/Operations/ScalarParamResponse.cs
   - OAFComplex/Models/Operations/SendCollectCombinedResponse.cs
   - OAFComplex/Models/Operations/SendCombinedResponse.cs
   - OAFComplex/Models/Operations/SendMixedParamResponse.cs
+  - OAFComplex/Models/Operations/RequestBody.cs
   - OAFComplex/Models/Operations/SendNonScalarParamResponse.cs
+  - OAFComplex/Models/Operations/SendScalarParamRequestBody.cs
   - OAFComplex/Models/Operations/SendScalarParamResponse.cs
   - OAFComplex/Models/Operations/SendinModelResponse.cs
+  - OAFComplex/Models/Shared/AllInnerArrayOfMap.cs
+  - OAFComplex/Models/Shared/AllInnerArrayOfMap2.cs
+  - OAFComplex/Models/Shared/One.cs
+  - OAFComplex/Models/Shared/MultiAnyOf.cs
+  - OAFComplex/Models/Shared/MixedModel1.cs
+  - OAFComplex/Models/Shared/MultiOneOfAnyOf.cs
+  - OAFComplex/Models/Shared/OuterArrayOfMap.cs
+  - OAFComplex/Models/Shared/OuterMapOfArray.cs
+  - OAFComplex/Models/Shared/OuterMapOfArray2.cs
+  - OAFComplex/Models/Shared/OuterMapOfSingleInnerArray.cs
+  - OAFComplex/Models/Shared/SingleInnerMapOfArray.cs
   - OAFComplex/Models/Shared/MixedModel.cs
+  - OAFComplex/Models/Shared/Orbit.cs
+  - OAFComplex/Models/Shared/Postman.cs
+  - OAFComplex/Models/Shared/Days.cs
+  - OAFComplex/Models/Shared/Person.cs
   - OAFComplex/Models/Shared/Car.cs
+  - OAFComplex/Models/Shared/Morning.cs
+  - OAFComplex/Models/Shared/Vehicle.cs
   - OAFComplex/Models/Shared/CaseEnum.cs
+  - OAFComplex/Models/Shared/NonScalarModelAllInnerArrayOfMap.cs
+  - OAFComplex/Models/Shared/NonScalarModelAllInnerArrayOfMap2.cs
+  - OAFComplex/Models/Shared/NonScalarModel1.cs
+  - OAFComplex/Models/Shared/NonScalarModelMultiAnyOf.cs
+  - OAFComplex/Models/Shared/NonScalarModelSchemas1.cs
+  - OAFComplex/Models/Shared/NonScalarModelMultiOneOfAnyOf.cs
+  - OAFComplex/Models/Shared/NonScalarModelOuterArrayOfMap.cs
+  - OAFComplex/Models/Shared/NonScalarModelOuterMapOfArray.cs
+  - OAFComplex/Models/Shared/NonScalarModelOuterMapOfArray2.cs
+  - OAFComplex/Models/Shared/NonScalarModelOuterMapOfSingleInnerArray.cs
+  - OAFComplex/Models/Shared/NonScalarModelSingleInnerMapOfArray.cs
   - OAFComplex/Models/Shared/NonScalarModel.cs
+  - OAFComplex/Models/Shared/Atom.cs
+  - OAFComplex/Models/Shared/Evening.cs
+  - OAFComplex/Models/Shared/Noon.cs
+  - OAFComplex/Models/Shared/ScalarModelAllInnerArrayOfMap.cs
+  - OAFComplex/Models/Shared/ScalarModelAllInnerArrayOfMap2.cs
+  - OAFComplex/Models/Shared/ScalarModel1.cs
+  - OAFComplex/Models/Shared/ScalarModelMultiAnyOf.cs
+  - OAFComplex/Models/Shared/ScalarModelSchemas1.cs
+  - OAFComplex/Models/Shared/ScalarModelMultiOneOfAnyOf.cs
+  - OAFComplex/Models/Shared/ScalarModelOuterArrayOfMap.cs
+  - OAFComplex/Models/Shared/ScalarModelOuterMapOfArray.cs
+  - OAFComplex/Models/Shared/ScalarModelOuterMapOfArray2.cs
+  - OAFComplex/Models/Shared/ScalarModelOuterMapOfSingleInnerArray.cs
+  - OAFComplex/Models/Shared/ScalarModelSingleInnerMapOfArray.cs
   - OAFComplex/Models/Shared/ScalarModel.cs
   - OAFComplex/Models/Shared/Input.cs
   - OAFComplex/Models/Shared/ServerResponse.cs
+  - OAFComplex/Models/Shared/BodyNonScalar.cs
+  - OAFComplex/Models/Shared/BodyScalar.cs
   - OAFComplex/Models/Shared/SendCollectCombinedRequestBody.cs
+  - OAFComplex/Models/Shared/SendCombinedRequestBodyBodyNonScalar.cs
+  - OAFComplex/Models/Shared/SendCombinedRequestBodyBodyScalar.cs
   - OAFComplex/Models/Shared/SendCombinedRequestBody.cs
   - OAFComplex/Models/Shared/SendinModelRequestBody.cs
   - docs/Models/Operations/MixedModelRequest.md
@@ -68,25 +119,75 @@ generatedFiles:
   - docs/Models/Operations/NonScalarModelRequest.md
   - docs/Models/Operations/NonScalarModelResponse.md
   - docs/Models/Operations/NonScalarParamRequest.md
+  - docs/Models/Operations/ResponseBody.md
   - docs/Models/Operations/NonScalarParamResponse.md
   - docs/Models/Operations/ScalarModelRequest.md
   - docs/Models/Operations/ScalarModelResponse.md
   - docs/Models/Operations/ScalarParamRequest.md
+  - docs/Models/Operations/ScalarParamResponseBody.md
   - docs/Models/Operations/ScalarParamResponse.md
   - docs/Models/Operations/SendCollectCombinedResponse.md
   - docs/Models/Operations/SendCombinedResponse.md
   - docs/Models/Operations/SendMixedParamResponse.md
+  - docs/Models/Operations/RequestBody.md
   - docs/Models/Operations/SendNonScalarParamResponse.md
+  - docs/Models/Operations/SendScalarParamRequestBody.md
   - docs/Models/Operations/SendScalarParamResponse.md
   - docs/Models/Operations/SendinModelResponse.md
+  - docs/Models/Shared/AllInnerArrayOfMap.md
+  - docs/Models/Shared/AllInnerArrayOfMap2.md
+  - docs/Models/Shared/One.md
+  - docs/Models/Shared/MultiAnyOf.md
+  - docs/Models/Shared/MixedModel1.md
+  - docs/Models/Shared/MultiOneOfAnyOf.md
+  - docs/Models/Shared/OuterArrayOfMap.md
+  - docs/Models/Shared/OuterMapOfArray.md
+  - docs/Models/Shared/OuterMapOfArray2.md
+  - docs/Models/Shared/OuterMapOfSingleInnerArray.md
+  - docs/Models/Shared/SingleInnerMapOfArray.md
   - docs/Models/Shared/MixedModel.md
+  - docs/Models/Shared/Orbit.md
+  - docs/Models/Shared/Postman.md
+  - docs/Models/Shared/Days.md
+  - docs/Models/Shared/Person.md
   - docs/Models/Shared/Car.md
+  - docs/Models/Shared/Morning.md
+  - docs/Models/Shared/Vehicle.md
   - docs/Models/Shared/CaseEnum.md
+  - docs/Models/Shared/NonScalarModelAllInnerArrayOfMap.md
+  - docs/Models/Shared/NonScalarModelAllInnerArrayOfMap2.md
+  - docs/Models/Shared/NonScalarModel1.md
+  - docs/Models/Shared/NonScalarModelMultiAnyOf.md
+  - docs/Models/Shared/NonScalarModelSchemas1.md
+  - docs/Models/Shared/NonScalarModelMultiOneOfAnyOf.md
+  - docs/Models/Shared/NonScalarModelOuterArrayOfMap.md
+  - docs/Models/Shared/NonScalarModelOuterMapOfArray.md
+  - docs/Models/Shared/NonScalarModelOuterMapOfArray2.md
+  - docs/Models/Shared/NonScalarModelOuterMapOfSingleInnerArray.md
+  - docs/Models/Shared/NonScalarModelSingleInnerMapOfArray.md
   - docs/Models/Shared/NonScalarModel.md
+  - docs/Models/Shared/Atom.md
+  - docs/Models/Shared/Evening.md
+  - docs/Models/Shared/Noon.md
+  - docs/Models/Shared/ScalarModelAllInnerArrayOfMap.md
+  - docs/Models/Shared/ScalarModelAllInnerArrayOfMap2.md
+  - docs/Models/Shared/ScalarModel1.md
+  - docs/Models/Shared/ScalarModelMultiAnyOf.md
+  - docs/Models/Shared/ScalarModelSchemas1.md
+  - docs/Models/Shared/ScalarModelMultiOneOfAnyOf.md
+  - docs/Models/Shared/ScalarModelOuterArrayOfMap.md
+  - docs/Models/Shared/ScalarModelOuterMapOfArray.md
+  - docs/Models/Shared/ScalarModelOuterMapOfArray2.md
+  - docs/Models/Shared/ScalarModelOuterMapOfSingleInnerArray.md
+  - docs/Models/Shared/ScalarModelSingleInnerMapOfArray.md
   - docs/Models/Shared/ScalarModel.md
   - docs/Models/Shared/Input.md
   - docs/Models/Shared/ServerResponse.md
+  - docs/Models/Shared/BodyNonScalar.md
+  - docs/Models/Shared/BodyScalar.md
   - docs/Models/Shared/SendCollectCombinedRequestBody.md
+  - docs/Models/Shared/SendCombinedRequestBodyBodyNonScalar.md
+  - docs/Models/Shared/SendCombinedRequestBodyBodyScalar.md
   - docs/Models/Shared/SendCombinedRequestBody.md
   - docs/Models/Shared/SendinModelRequestBody.md
   - docs/sdks/oafcomplex/README.md

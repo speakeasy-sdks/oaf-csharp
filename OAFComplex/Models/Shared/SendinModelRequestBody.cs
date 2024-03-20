@@ -11,6 +11,7 @@
 namespace OAFComplex.Models.Shared
 {
     using Newtonsoft.Json;
+    using OAFComplex.Models.Shared;
     
     public class SendinModelRequestBody
     {

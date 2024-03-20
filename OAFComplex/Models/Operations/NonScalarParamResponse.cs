@@ -32,6 +32,6 @@ namespace OAFComplex.Models.Operations
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
 
-        public Dictionary<string, object>? Object { get; set; }
+        public Dictionary<string, ResponseBody>? Object { get; set; }
     }
 }

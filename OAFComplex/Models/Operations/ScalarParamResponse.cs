@@ -32,6 +32,6 @@ namespace OAFComplex.Models.Operations
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
 
-        public List<Dictionary<string, object>>? Maps { get; set; }
+        public List<Dictionary<string, ScalarParamResponseBody>>? Maps { get; set; }
     }
 }
