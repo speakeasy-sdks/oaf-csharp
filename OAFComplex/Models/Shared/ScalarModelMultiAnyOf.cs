@@ -26,7 +26,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelMultiAnyOfType Int32 { get { return new ScalarModelMultiAnyOfType("int32"); } }
         
-        public static ScalarModelMultiAnyOfType Null { get { return new ScalarModelMultiAnyOfType("null"); } } 
+        public static ScalarModelMultiAnyOfType Null { get { return new ScalarModelMultiAnyOfType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelMultiAnyOfType v) { return v.Value; }
@@ -62,7 +62,7 @@ namespace OAFComplex.Models.Shared
         public ScalarModel1? ScalarModel1 { get; set; } 
         public int? Int32 { get; set; } 
 
-        public ScalarModelMultiAnyOfType Type {get; set; }
+        public ScalarModelMultiAnyOfType Type { get; set; }
 
 
         public static ScalarModelMultiAnyOf CreateScalarModel1(ScalarModel1 scalarModel1) {
@@ -102,7 +102,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    ScalarModel1? scalarModel1 = JsonConvert.DeserializeObject<ScalarModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(ScalarModel1), "string")});
+                    ScalarModel1? scalarModel1 = JsonConvert.DeserializeObject<ScalarModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(ScalarModel1))});
                     return new ScalarModelMultiAnyOf(ScalarModelMultiAnyOfType.ScalarModel1) {
                         ScalarModel1 = scalarModel1
                     };
@@ -152,6 +152,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

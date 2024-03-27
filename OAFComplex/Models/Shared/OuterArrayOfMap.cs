@@ -29,7 +29,7 @@ namespace OAFComplex.Models.Shared
         
         public static OuterArrayOfMapType Str { get { return new OuterArrayOfMapType("str"); } }
         
-        public static OuterArrayOfMapType Null { get { return new OuterArrayOfMapType("null"); } } 
+        public static OuterArrayOfMapType Null { get { return new OuterArrayOfMapType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(OuterArrayOfMapType v) { return v.Value; }
@@ -67,7 +67,7 @@ namespace OAFComplex.Models.Shared
         public Morning? Morning { get; set; } 
         public string? Str { get; set; } 
 
-        public OuterArrayOfMapType Type {get; set; }
+        public OuterArrayOfMapType Type { get; set; }
 
 
         public static OuterArrayOfMap CreateCar(Car car) {
@@ -115,7 +115,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car), "string")});
+                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
                     return new OuterArrayOfMap(OuterArrayOfMapType.Car) {
                         Car = car
                     };
@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning), "string")});
+                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
                     return new OuterArrayOfMap(OuterArrayOfMapType.Morning) {
                         Morning = morning
                     };
@@ -180,6 +180,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

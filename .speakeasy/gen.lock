@@ -3,10 +3,10 @@ id: 6e826e33-ae61-4b56-8740-6ce7a9c28f54
 management:
   docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
   docVersion: 1.0.0
-  speakeasyVersion: 1.213.0
-  generationVersion: 2.283.1
-  releaseVersion: 0.6.0
-  configChecksum: 70ba70b318407d0b1df043eec9e43162
+  speakeasyVersion: 1.227.0
+  generationVersion: 2.291.0
+  releaseVersion: 0.6.1
+  configChecksum: c271e7559abd06539e9b4d68812521f9
   repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   repoSubDirectory: .
   published: true
@@ -14,15 +14,16 @@ features:
   csharp:
     core: 3.4.3
     globalServerURLs: 2.82.3
-    unions: 0.0.1
+    unions: 0.0.2
 generatedFiles:
   - OAFComplex/Receiver.cs
   - OAFComplex/Sender.cs
   - OAFComplex/OAFComplexSDK.cs
   - global.json
-  - OAFComplex/Utils/BigIntSerializer.cs
-  - OAFComplex/Utils/DecimalSerializer.cs
-  - OAFComplex/Utils/EnumSerializer.cs
+  - OAFComplex/Utils/AnyDeserializer.cs
+  - OAFComplex/Utils/BigIntStrConverter.cs
+  - OAFComplex/Utils/DecimalStrConverter.cs
+  - OAFComplex/Utils/EnumConverter.cs
   - OAFComplex/Utils/FlexibleObjectDeserializer.cs
   - OAFComplex/Utils/HeaderSerializer.cs
   - OAFComplex/Utils/IsoDateTimeSerializer.cs

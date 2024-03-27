@@ -29,7 +29,7 @@ namespace OAFComplex.Models.Shared
         
         public static NonScalarModelOuterArrayOfMapType Atom { get { return new NonScalarModelOuterArrayOfMapType("Atom"); } }
         
-        public static NonScalarModelOuterArrayOfMapType Null { get { return new NonScalarModelOuterArrayOfMapType("null"); } } 
+        public static NonScalarModelOuterArrayOfMapType Null { get { return new NonScalarModelOuterArrayOfMapType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(NonScalarModelOuterArrayOfMapType v) { return v.Value; }
@@ -67,7 +67,7 @@ namespace OAFComplex.Models.Shared
         public Morning? Morning { get; set; } 
         public Atom? Atom { get; set; } 
 
-        public NonScalarModelOuterArrayOfMapType Type {get; set; }
+        public NonScalarModelOuterArrayOfMapType Type { get; set; }
 
 
         public static NonScalarModelOuterArrayOfMap CreateCar(Car car) {
@@ -115,7 +115,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car), "string")});
+                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
                     return new NonScalarModelOuterArrayOfMap(NonScalarModelOuterArrayOfMapType.Car) {
                         Car = car
                     };
@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom), "string")});
+                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom))});
                     return new NonScalarModelOuterArrayOfMap(NonScalarModelOuterArrayOfMapType.Atom) {
                         Atom = atom
                     };
@@ -141,7 +141,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning), "string")});
+                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
                     return new NonScalarModelOuterArrayOfMap(NonScalarModelOuterArrayOfMapType.Morning) {
                         Morning = morning
                     };
@@ -188,6 +188,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

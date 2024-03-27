@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelOuterMapOfSingleInnerArrayType Number { get { return new ScalarModelOuterMapOfSingleInnerArrayType("number"); } }
         
-        public static ScalarModelOuterMapOfSingleInnerArrayType Null { get { return new ScalarModelOuterMapOfSingleInnerArrayType("null"); } } 
+        public static ScalarModelOuterMapOfSingleInnerArrayType Null { get { return new ScalarModelOuterMapOfSingleInnerArrayType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelOuterMapOfSingleInnerArrayType v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public List<double>? ArrayOfnumber { get; set; } 
         public double? Number { get; set; } 
 
-        public ScalarModelOuterMapOfSingleInnerArrayType Type {get; set; }
+        public ScalarModelOuterMapOfSingleInnerArrayType Type { get; set; }
 
 
         public static ScalarModelOuterMapOfSingleInnerArray CreateArrayOfnumber(List<double> arrayOfnumber) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<double>? arrayOfnumber = JsonConvert.DeserializeObject<List<double>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<double>), "string")});
+                    List<double>? arrayOfnumber = JsonConvert.DeserializeObject<List<double>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<double>))});
                     return new ScalarModelOuterMapOfSingleInnerArray(ScalarModelOuterMapOfSingleInnerArrayType.ArrayOfnumber) {
                         ArrayOfnumber = arrayOfnumber
                     };
@@ -153,6 +153,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

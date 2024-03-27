@@ -28,7 +28,7 @@ namespace OAFComplex.Models.Shared
         
         public static SendCombinedRequestBodyBodyNonScalarType Atom { get { return new SendCombinedRequestBodyBodyNonScalarType("Atom"); } }
         
-        public static SendCombinedRequestBodyBodyNonScalarType Null { get { return new SendCombinedRequestBodyBodyNonScalarType("null"); } } 
+        public static SendCombinedRequestBodyBodyNonScalarType Null { get { return new SendCombinedRequestBodyBodyNonScalarType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(SendCombinedRequestBodyBodyNonScalarType v) { return v.Value; }
@@ -64,7 +64,7 @@ namespace OAFComplex.Models.Shared
         public List<Atom>? ArrayOfAtom { get; set; } 
         public Atom? Atom { get; set; } 
 
-        public SendCombinedRequestBodyBodyNonScalarType Type {get; set; }
+        public SendCombinedRequestBodyBodyNonScalarType Type { get; set; }
 
 
         public static SendCombinedRequestBodyBodyNonScalar CreateArrayOfAtom(List<Atom> arrayOfAtom) {
@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom), "string")});
+                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom))});
                     return new SendCombinedRequestBodyBodyNonScalar(SendCombinedRequestBodyBodyNonScalarType.Atom) {
                         Atom = atom
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Atom>? arrayOfAtom = JsonConvert.DeserializeObject<List<Atom>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Atom>), "string")});
+                    List<Atom>? arrayOfAtom = JsonConvert.DeserializeObject<List<Atom>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Atom>))});
                     return new SendCombinedRequestBodyBodyNonScalar(SendCombinedRequestBodyBodyNonScalarType.ArrayOfAtom) {
                         ArrayOfAtom = arrayOfAtom
                     };
@@ -159,6 +159,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

@@ -28,7 +28,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelOuterArrayOfMapType Str { get { return new ScalarModelOuterArrayOfMapType("str"); } }
         
-        public static ScalarModelOuterArrayOfMapType Null { get { return new ScalarModelOuterArrayOfMapType("null"); } } 
+        public static ScalarModelOuterArrayOfMapType Null { get { return new ScalarModelOuterArrayOfMapType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelOuterArrayOfMapType v) { return v.Value; }
@@ -66,7 +66,7 @@ namespace OAFComplex.Models.Shared
         public bool? Boolean { get; set; } 
         public string? Str { get; set; } 
 
-        public ScalarModelOuterArrayOfMapType Type {get; set; }
+        public ScalarModelOuterArrayOfMapType Type { get; set; }
 
 
         public static ScalarModelOuterArrayOfMap CreateInt32(int int32) {
@@ -169,6 +169,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

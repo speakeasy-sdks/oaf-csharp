@@ -29,7 +29,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelAllInnerArrayOfMap2Type Any { get { return new ScalarModelAllInnerArrayOfMap2Type("any"); } }
         
-        public static ScalarModelAllInnerArrayOfMap2Type Null { get { return new ScalarModelAllInnerArrayOfMap2Type("null"); } } 
+        public static ScalarModelAllInnerArrayOfMap2Type Null { get { return new ScalarModelAllInnerArrayOfMap2Type("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelAllInnerArrayOfMap2Type v) { return v.Value; }
@@ -67,7 +67,7 @@ namespace OAFComplex.Models.Shared
         public List<Dictionary<string, string>>? ArrayOfmapOfstr { get; set; } 
         public object? Any { get; set; } 
 
-        public ScalarModelAllInnerArrayOfMap2Type Type {get; set; }
+        public ScalarModelAllInnerArrayOfMap2Type Type { get; set; }
 
 
         public static ScalarModelAllInnerArrayOfMap2 CreateArrayOfmapOfint32(List<Dictionary<string, int>> arrayOfmapOfint32) {
@@ -115,7 +115,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, int>>? arrayOfmapOfint32 = JsonConvert.DeserializeObject<List<Dictionary<string, int>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, int>>), "string")});
+                    List<Dictionary<string, int>>? arrayOfmapOfint32 = JsonConvert.DeserializeObject<List<Dictionary<string, int>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, int>>))});
                     return new ScalarModelAllInnerArrayOfMap2(ScalarModelAllInnerArrayOfMap2Type.ArrayOfmapOfint32) {
                         ArrayOfmapOfint32 = arrayOfmapOfint32
                     };
@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, string>>? arrayOfmapOfstr = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, string>>), "string")});
+                    List<Dictionary<string, string>>? arrayOfmapOfstr = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, string>>))});
                     return new ScalarModelAllInnerArrayOfMap2(ScalarModelAllInnerArrayOfMap2Type.ArrayOfmapOfstr) {
                         ArrayOfmapOfstr = arrayOfmapOfstr
                     };
@@ -141,7 +141,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new ScalarModelAllInnerArrayOfMap2(ScalarModelAllInnerArrayOfMap2Type.Any) {
                         Any = any
                     };
@@ -188,6 +188,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

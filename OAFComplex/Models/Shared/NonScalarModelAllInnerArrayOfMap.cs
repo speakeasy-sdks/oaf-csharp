@@ -30,7 +30,7 @@ namespace OAFComplex.Models.Shared
         
         public static NonScalarModelAllInnerArrayOfMapType Any { get { return new NonScalarModelAllInnerArrayOfMapType("any"); } }
         
-        public static NonScalarModelAllInnerArrayOfMapType Null { get { return new NonScalarModelAllInnerArrayOfMapType("null"); } } 
+        public static NonScalarModelAllInnerArrayOfMapType Null { get { return new NonScalarModelAllInnerArrayOfMapType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(NonScalarModelAllInnerArrayOfMapType v) { return v.Value; }
@@ -68,7 +68,7 @@ namespace OAFComplex.Models.Shared
         public List<Dictionary<string, Vehicle>>? ArrayOfmapOfVehicle { get; set; } 
         public object? Any { get; set; } 
 
-        public NonScalarModelAllInnerArrayOfMapType Type {get; set; }
+        public NonScalarModelAllInnerArrayOfMapType Type { get; set; }
 
 
         public static NonScalarModelAllInnerArrayOfMap CreateArrayOfmapOfOrbit(List<Dictionary<string, Orbit>> arrayOfmapOfOrbit) {
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, Orbit>>? arrayOfmapOfOrbit = JsonConvert.DeserializeObject<List<Dictionary<string, Orbit>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Orbit>>), "string")});
+                    List<Dictionary<string, Orbit>>? arrayOfmapOfOrbit = JsonConvert.DeserializeObject<List<Dictionary<string, Orbit>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Orbit>>))});
                     return new NonScalarModelAllInnerArrayOfMap(NonScalarModelAllInnerArrayOfMapType.ArrayOfmapOfOrbit) {
                         ArrayOfmapOfOrbit = arrayOfmapOfOrbit
                     };
@@ -129,7 +129,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, Vehicle>>? arrayOfmapOfVehicle = JsonConvert.DeserializeObject<List<Dictionary<string, Vehicle>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Vehicle>>), "string")});
+                    List<Dictionary<string, Vehicle>>? arrayOfmapOfVehicle = JsonConvert.DeserializeObject<List<Dictionary<string, Vehicle>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Vehicle>>))});
                     return new NonScalarModelAllInnerArrayOfMap(NonScalarModelAllInnerArrayOfMapType.ArrayOfmapOfVehicle) {
                         ArrayOfmapOfVehicle = arrayOfmapOfVehicle
                     };
@@ -142,7 +142,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new NonScalarModelAllInnerArrayOfMap(NonScalarModelAllInnerArrayOfMapType.Any) {
                         Any = any
                     };
@@ -189,6 +189,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

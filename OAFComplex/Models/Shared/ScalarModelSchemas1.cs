@@ -26,7 +26,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelSchemas1Type Int32 { get { return new ScalarModelSchemas1Type("int32"); } }
         
-        public static ScalarModelSchemas1Type Null { get { return new ScalarModelSchemas1Type("null"); } } 
+        public static ScalarModelSchemas1Type Null { get { return new ScalarModelSchemas1Type("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelSchemas1Type v) { return v.Value; }
@@ -62,7 +62,7 @@ namespace OAFComplex.Models.Shared
         public double? Number { get; set; } 
         public int? Int32 { get; set; } 
 
-        public ScalarModelSchemas1Type Type {get; set; }
+        public ScalarModelSchemas1Type Type { get; set; }
 
 
         public static ScalarModelSchemas1 CreateNumber(double number) {
@@ -147,6 +147,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

@@ -28,7 +28,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelOuterMapOfArrayType Any { get { return new ScalarModelOuterMapOfArrayType("any"); } }
         
-        public static ScalarModelOuterMapOfArrayType Null { get { return new ScalarModelOuterMapOfArrayType("null"); } } 
+        public static ScalarModelOuterMapOfArrayType Null { get { return new ScalarModelOuterMapOfArrayType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelOuterMapOfArrayType v) { return v.Value; }
@@ -66,7 +66,7 @@ namespace OAFComplex.Models.Shared
         public bool? Boolean { get; set; } 
         public object? Any { get; set; } 
 
-        public ScalarModelOuterMapOfArrayType Type {get; set; }
+        public ScalarModelOuterMapOfArrayType Type { get; set; }
 
 
         public static ScalarModelOuterMapOfArray CreateInt32(int int32) {
@@ -130,7 +130,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new ScalarModelOuterMapOfArray(ScalarModelOuterMapOfArrayType.Any) {
                         Any = any
                     };
@@ -177,6 +177,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

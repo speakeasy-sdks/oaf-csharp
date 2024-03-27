@@ -26,7 +26,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelMultiOneOfAnyOfType Str { get { return new ScalarModelMultiOneOfAnyOfType("str"); } }
         
-        public static ScalarModelMultiOneOfAnyOfType Null { get { return new ScalarModelMultiOneOfAnyOfType("null"); } } 
+        public static ScalarModelMultiOneOfAnyOfType Null { get { return new ScalarModelMultiOneOfAnyOfType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelMultiOneOfAnyOfType v) { return v.Value; }
@@ -62,7 +62,7 @@ namespace OAFComplex.Models.Shared
         public ScalarModelSchemas1? ScalarModelSchemas1 { get; set; } 
         public string? Str { get; set; } 
 
-        public ScalarModelMultiOneOfAnyOfType Type {get; set; }
+        public ScalarModelMultiOneOfAnyOfType Type { get; set; }
 
 
         public static ScalarModelMultiOneOfAnyOf CreateScalarModelSchemas1(ScalarModelSchemas1 scalarModelSchemas1) {
@@ -102,7 +102,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    ScalarModelSchemas1? scalarModelSchemas1 = JsonConvert.DeserializeObject<ScalarModelSchemas1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(ScalarModelSchemas1), "string")});
+                    ScalarModelSchemas1? scalarModelSchemas1 = JsonConvert.DeserializeObject<ScalarModelSchemas1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(ScalarModelSchemas1))});
                     return new ScalarModelMultiOneOfAnyOf(ScalarModelMultiOneOfAnyOfType.ScalarModelSchemas1) {
                         ScalarModelSchemas1 = scalarModelSchemas1
                     };
@@ -149,6 +149,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

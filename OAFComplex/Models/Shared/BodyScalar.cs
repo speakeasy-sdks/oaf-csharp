@@ -30,7 +30,7 @@ namespace OAFComplex.Models.Shared
         
         public static BodyScalarType Any { get { return new BodyScalarType("any"); } }
         
-        public static BodyScalarType Null { get { return new BodyScalarType("null"); } } 
+        public static BodyScalarType Null { get { return new BodyScalarType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(BodyScalarType v) { return v.Value; }
@@ -70,7 +70,7 @@ namespace OAFComplex.Models.Shared
         public string? Str { get; set; } 
         public object? Any { get; set; } 
 
-        public BodyScalarType Type {get; set; }
+        public BodyScalarType Type { get; set; }
 
 
         public static BodyScalar CreateInt32(int int32) {
@@ -147,7 +147,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new BodyScalar(BodyScalarType.Any) {
                         Any = any
                     };
@@ -199,6 +199,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

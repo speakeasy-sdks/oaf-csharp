@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static OneType Str { get { return new OneType("str"); } }
         
-        public static OneType Null { get { return new OneType("null"); } } 
+        public static OneType Null { get { return new OneType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(OneType v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public Car? Car { get; set; } 
         public string? Str { get; set; } 
 
-        public OneType Type {get; set; }
+        public OneType Type { get; set; }
 
 
         public static One CreateCar(Car car) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car), "string")});
+                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
                     return new One(OneType.Car) {
                         Car = car
                     };
@@ -150,6 +150,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

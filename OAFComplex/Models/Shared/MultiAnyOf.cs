@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static MultiAnyOfType Morning { get { return new MultiAnyOfType("Morning"); } }
         
-        public static MultiAnyOfType Null { get { return new MultiAnyOfType("null"); } } 
+        public static MultiAnyOfType Null { get { return new MultiAnyOfType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(MultiAnyOfType v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public One? One { get; set; } 
         public Morning? Morning { get; set; } 
 
-        public MultiAnyOfType Type {get; set; }
+        public MultiAnyOfType Type { get; set; }
 
 
         public static MultiAnyOf CreateOne(One one) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning), "string")});
+                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
                     return new MultiAnyOf(MultiAnyOfType.Morning) {
                         Morning = morning
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    One? one = JsonConvert.DeserializeObject<One>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(One), "string")});
+                    One? one = JsonConvert.DeserializeObject<One>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(One))});
                     return new MultiAnyOf(MultiAnyOfType.One) {
                         One = one
                     };
@@ -158,6 +158,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

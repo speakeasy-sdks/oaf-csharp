@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static MixedModel1Type Str { get { return new MixedModel1Type("str"); } }
         
-        public static MixedModel1Type Null { get { return new MixedModel1Type("null"); } } 
+        public static MixedModel1Type Null { get { return new MixedModel1Type("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(MixedModel1Type v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public Car? Car { get; set; } 
         public string? Str { get; set; } 
 
-        public MixedModel1Type Type {get; set; }
+        public MixedModel1Type Type { get; set; }
 
 
         public static MixedModel1 CreateCar(Car car) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car), "string")});
+                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
                     return new MixedModel1(MixedModel1Type.Car) {
                         Car = car
                     };
@@ -150,6 +150,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

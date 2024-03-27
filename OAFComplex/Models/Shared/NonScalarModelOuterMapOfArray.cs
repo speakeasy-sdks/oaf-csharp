@@ -31,7 +31,7 @@ namespace OAFComplex.Models.Shared
         
         public static NonScalarModelOuterMapOfArrayType Any { get { return new NonScalarModelOuterMapOfArrayType("any"); } }
         
-        public static NonScalarModelOuterMapOfArrayType Null { get { return new NonScalarModelOuterMapOfArrayType("null"); } } 
+        public static NonScalarModelOuterMapOfArrayType Null { get { return new NonScalarModelOuterMapOfArrayType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(NonScalarModelOuterMapOfArrayType v) { return v.Value; }
@@ -71,7 +71,7 @@ namespace OAFComplex.Models.Shared
         public Noon? Noon { get; set; } 
         public object? Any { get; set; } 
 
-        public NonScalarModelOuterMapOfArrayType Type {get; set; }
+        public NonScalarModelOuterMapOfArrayType Type { get; set; }
 
 
         public static NonScalarModelOuterMapOfArray CreateMorning(Morning morning) {
@@ -127,7 +127,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning), "string")});
+                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
                     return new NonScalarModelOuterMapOfArray(NonScalarModelOuterMapOfArrayType.Morning) {
                         Morning = morning
                     };
@@ -140,7 +140,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Evening? evening = JsonConvert.DeserializeObject<Evening>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Evening), "string")});
+                    Evening? evening = JsonConvert.DeserializeObject<Evening>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Evening))});
                     return new NonScalarModelOuterMapOfArray(NonScalarModelOuterMapOfArrayType.Evening) {
                         Evening = evening
                     };
@@ -153,7 +153,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Noon? noon = JsonConvert.DeserializeObject<Noon>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Noon), "string")});
+                    Noon? noon = JsonConvert.DeserializeObject<Noon>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Noon))});
                     return new NonScalarModelOuterMapOfArray(NonScalarModelOuterMapOfArrayType.Noon) {
                         Noon = noon
                     };
@@ -166,7 +166,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new NonScalarModelOuterMapOfArray(NonScalarModelOuterMapOfArrayType.Any) {
                         Any = any
                     };
@@ -218,6 +218,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

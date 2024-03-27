@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static NonScalarModel1Type Atom { get { return new NonScalarModel1Type("Atom"); } }
         
-        public static NonScalarModel1Type Null { get { return new NonScalarModel1Type("null"); } } 
+        public static NonScalarModel1Type Null { get { return new NonScalarModel1Type("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(NonScalarModel1Type v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public Car? Car { get; set; } 
         public Atom? Atom { get; set; } 
 
-        public NonScalarModel1Type Type {get; set; }
+        public NonScalarModel1Type Type { get; set; }
 
 
         public static NonScalarModel1 CreateCar(Car car) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car), "string")});
+                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
                     return new NonScalarModel1(NonScalarModel1Type.Car) {
                         Car = car
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom), "string")});
+                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom))});
                     return new NonScalarModel1(NonScalarModel1Type.Atom) {
                         Atom = atom
                     };
@@ -158,6 +158,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

@@ -28,7 +28,7 @@ namespace OAFComplex.Models.Operations
         
         public static RequestBodyType Atom { get { return new RequestBodyType("Atom"); } }
         
-        public static RequestBodyType Null { get { return new RequestBodyType("null"); } } 
+        public static RequestBodyType Null { get { return new RequestBodyType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(RequestBodyType v) { return v.Value; }
@@ -64,7 +64,7 @@ namespace OAFComplex.Models.Operations
         public List<Atom>? ArrayOfAtom { get; set; } 
         public Atom? Atom { get; set; } 
 
-        public RequestBodyType Type {get; set; }
+        public RequestBodyType Type { get; set; }
 
 
         public static RequestBody CreateArrayOfAtom(List<Atom> arrayOfAtom) {
@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Operations
                 }
                 try
                 {
-                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom), "string")});
+                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom))});
                     return new RequestBody(RequestBodyType.Atom) {
                         Atom = atom
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Operations
                 }
                 try
                 {
-                    List<Atom>? arrayOfAtom = JsonConvert.DeserializeObject<List<Atom>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Atom>), "string")});
+                    List<Atom>? arrayOfAtom = JsonConvert.DeserializeObject<List<Atom>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Atom>))});
                     return new RequestBody(RequestBodyType.ArrayOfAtom) {
                         ArrayOfAtom = arrayOfAtom
                     };
@@ -159,6 +159,5 @@ namespace OAFComplex.Models.Operations
         }
 
     }
-
 
 }

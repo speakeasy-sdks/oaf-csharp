@@ -30,7 +30,7 @@ namespace OAFComplex.Models.Operations
         
         public static ScalarParamResponseBodyType Any { get { return new ScalarParamResponseBodyType("any"); } }
         
-        public static ScalarParamResponseBodyType Null { get { return new ScalarParamResponseBodyType("null"); } } 
+        public static ScalarParamResponseBodyType Null { get { return new ScalarParamResponseBodyType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarParamResponseBodyType v) { return v.Value; }
@@ -70,7 +70,7 @@ namespace OAFComplex.Models.Operations
         public string? Str { get; set; } 
         public object? Any { get; set; } 
 
-        public ScalarParamResponseBodyType Type {get; set; }
+        public ScalarParamResponseBodyType Type { get; set; }
 
 
         public static ScalarParamResponseBody CreateInt32(int int32) {
@@ -147,7 +147,7 @@ namespace OAFComplex.Models.Operations
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new ScalarParamResponseBody(ScalarParamResponseBodyType.Any) {
                         Any = any
                     };
@@ -199,6 +199,5 @@ namespace OAFComplex.Models.Operations
         }
 
     }
-
 
 }

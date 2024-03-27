@@ -29,7 +29,7 @@ namespace OAFComplex.Models.Shared
         
         public static ScalarModelOuterMapOfArray2Type Any { get { return new ScalarModelOuterMapOfArray2Type("any"); } }
         
-        public static ScalarModelOuterMapOfArray2Type Null { get { return new ScalarModelOuterMapOfArray2Type("null"); } } 
+        public static ScalarModelOuterMapOfArray2Type Null { get { return new ScalarModelOuterMapOfArray2Type("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ScalarModelOuterMapOfArray2Type v) { return v.Value; }
@@ -67,7 +67,7 @@ namespace OAFComplex.Models.Shared
         public Dictionary<string, bool>? MapOfboolean { get; set; } 
         public object? Any { get; set; } 
 
-        public ScalarModelOuterMapOfArray2Type Type {get; set; }
+        public ScalarModelOuterMapOfArray2Type Type { get; set; }
 
 
         public static ScalarModelOuterMapOfArray2 CreateMapOfint32(Dictionary<string, int> mapOfint32) {
@@ -115,7 +115,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, int>? mapOfint32 = JsonConvert.DeserializeObject<Dictionary<string, int>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, int>), "string")});
+                    Dictionary<string, int>? mapOfint32 = JsonConvert.DeserializeObject<Dictionary<string, int>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, int>))});
                     return new ScalarModelOuterMapOfArray2(ScalarModelOuterMapOfArray2Type.MapOfint32) {
                         MapOfint32 = mapOfint32
                     };
@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, bool>? mapOfboolean = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, bool>), "string")});
+                    Dictionary<string, bool>? mapOfboolean = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, bool>))});
                     return new ScalarModelOuterMapOfArray2(ScalarModelOuterMapOfArray2Type.MapOfboolean) {
                         MapOfboolean = mapOfboolean
                     };
@@ -141,7 +141,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new ScalarModelOuterMapOfArray2(ScalarModelOuterMapOfArray2Type.Any) {
                         Any = any
                     };
@@ -188,6 +188,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

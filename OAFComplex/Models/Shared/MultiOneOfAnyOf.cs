@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static MultiOneOfAnyOfType Morning { get { return new MultiOneOfAnyOfType("Morning"); } }
         
-        public static MultiOneOfAnyOfType Null { get { return new MultiOneOfAnyOfType("null"); } } 
+        public static MultiOneOfAnyOfType Null { get { return new MultiOneOfAnyOfType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(MultiOneOfAnyOfType v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public MixedModel1? MixedModel1 { get; set; } 
         public Morning? Morning { get; set; } 
 
-        public MultiOneOfAnyOfType Type {get; set; }
+        public MultiOneOfAnyOfType Type { get; set; }
 
 
         public static MultiOneOfAnyOf CreateMixedModel1(MixedModel1 mixedModel1) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning), "string")});
+                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
                     return new MultiOneOfAnyOf(MultiOneOfAnyOfType.Morning) {
                         Morning = morning
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    MixedModel1? mixedModel1 = JsonConvert.DeserializeObject<MixedModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(MixedModel1), "string")});
+                    MixedModel1? mixedModel1 = JsonConvert.DeserializeObject<MixedModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(MixedModel1))});
                     return new MultiOneOfAnyOf(MultiOneOfAnyOfType.MixedModel1) {
                         MixedModel1 = mixedModel1
                     };
@@ -158,6 +158,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

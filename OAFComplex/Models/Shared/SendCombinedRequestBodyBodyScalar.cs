@@ -30,7 +30,7 @@ namespace OAFComplex.Models.Shared
         
         public static SendCombinedRequestBodyBodyScalarType Any { get { return new SendCombinedRequestBodyBodyScalarType("any"); } }
         
-        public static SendCombinedRequestBodyBodyScalarType Null { get { return new SendCombinedRequestBodyBodyScalarType("null"); } } 
+        public static SendCombinedRequestBodyBodyScalarType Null { get { return new SendCombinedRequestBodyBodyScalarType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(SendCombinedRequestBodyBodyScalarType v) { return v.Value; }
@@ -70,7 +70,7 @@ namespace OAFComplex.Models.Shared
         public string? Str { get; set; } 
         public object? Any { get; set; } 
 
-        public SendCombinedRequestBodyBodyScalarType Type {get; set; }
+        public SendCombinedRequestBodyBodyScalarType Type { get; set; }
 
 
         public static SendCombinedRequestBodyBodyScalar CreateInt32(int int32) {
@@ -147,7 +147,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new SendCombinedRequestBodyBodyScalar(SendCombinedRequestBodyBodyScalarType.Any) {
                         Any = any
                     };
@@ -199,6 +199,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

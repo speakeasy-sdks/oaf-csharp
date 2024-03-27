@@ -30,7 +30,7 @@ namespace OAFComplex.Models.Shared
         
         public static AllInnerArrayOfMapType Any { get { return new AllInnerArrayOfMapType("any"); } }
         
-        public static AllInnerArrayOfMapType Null { get { return new AllInnerArrayOfMapType("null"); } } 
+        public static AllInnerArrayOfMapType Null { get { return new AllInnerArrayOfMapType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(AllInnerArrayOfMapType v) { return v.Value; }
@@ -68,7 +68,7 @@ namespace OAFComplex.Models.Shared
         public List<Dictionary<string, Vehicle>>? ArrayOfmapOfVehicle { get; set; } 
         public object? Any { get; set; } 
 
-        public AllInnerArrayOfMapType Type {get; set; }
+        public AllInnerArrayOfMapType Type { get; set; }
 
 
         public static AllInnerArrayOfMap CreateArrayOfmapOfboolean(List<Dictionary<string, bool>> arrayOfmapOfboolean) {
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, bool>>? arrayOfmapOfboolean = JsonConvert.DeserializeObject<List<Dictionary<string, bool>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, bool>>), "string")});
+                    List<Dictionary<string, bool>>? arrayOfmapOfboolean = JsonConvert.DeserializeObject<List<Dictionary<string, bool>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, bool>>))});
                     return new AllInnerArrayOfMap(AllInnerArrayOfMapType.ArrayOfmapOfboolean) {
                         ArrayOfmapOfboolean = arrayOfmapOfboolean
                     };
@@ -129,7 +129,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, Vehicle>>? arrayOfmapOfVehicle = JsonConvert.DeserializeObject<List<Dictionary<string, Vehicle>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Vehicle>>), "string")});
+                    List<Dictionary<string, Vehicle>>? arrayOfmapOfVehicle = JsonConvert.DeserializeObject<List<Dictionary<string, Vehicle>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Vehicle>>))});
                     return new AllInnerArrayOfMap(AllInnerArrayOfMapType.ArrayOfmapOfVehicle) {
                         ArrayOfmapOfVehicle = arrayOfmapOfVehicle
                     };
@@ -142,7 +142,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object), "string")});
+                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
                     return new AllInnerArrayOfMap(AllInnerArrayOfMapType.Any) {
                         Any = any
                     };
@@ -189,6 +189,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

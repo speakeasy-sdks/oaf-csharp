@@ -27,7 +27,7 @@ namespace OAFComplex.Models.Shared
         
         public static NonScalarModelMultiOneOfAnyOfType Morning { get { return new NonScalarModelMultiOneOfAnyOfType("Morning"); } }
         
-        public static NonScalarModelMultiOneOfAnyOfType Null { get { return new NonScalarModelMultiOneOfAnyOfType("null"); } } 
+        public static NonScalarModelMultiOneOfAnyOfType Null { get { return new NonScalarModelMultiOneOfAnyOfType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(NonScalarModelMultiOneOfAnyOfType v) { return v.Value; }
@@ -63,7 +63,7 @@ namespace OAFComplex.Models.Shared
         public NonScalarModelSchemas1? NonScalarModelSchemas1 { get; set; } 
         public Morning? Morning { get; set; } 
 
-        public NonScalarModelMultiOneOfAnyOfType Type {get; set; }
+        public NonScalarModelMultiOneOfAnyOfType Type { get; set; }
 
 
         public static NonScalarModelMultiOneOfAnyOf CreateNonScalarModelSchemas1(NonScalarModelSchemas1 nonScalarModelSchemas1) {
@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning), "string")});
+                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
                     return new NonScalarModelMultiOneOfAnyOf(NonScalarModelMultiOneOfAnyOfType.Morning) {
                         Morning = morning
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    NonScalarModelSchemas1? nonScalarModelSchemas1 = JsonConvert.DeserializeObject<NonScalarModelSchemas1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(NonScalarModelSchemas1), "string")});
+                    NonScalarModelSchemas1? nonScalarModelSchemas1 = JsonConvert.DeserializeObject<NonScalarModelSchemas1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(NonScalarModelSchemas1))});
                     return new NonScalarModelMultiOneOfAnyOf(NonScalarModelMultiOneOfAnyOfType.NonScalarModelSchemas1) {
                         NonScalarModelSchemas1 = nonScalarModelSchemas1
                     };
@@ -158,6 +158,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }

@@ -28,7 +28,7 @@ namespace OAFComplex.Models.Shared
         
         public static OuterMapOfSingleInnerArrayType Orbit { get { return new OuterMapOfSingleInnerArrayType("Orbit"); } }
         
-        public static OuterMapOfSingleInnerArrayType Null { get { return new OuterMapOfSingleInnerArrayType("null"); } } 
+        public static OuterMapOfSingleInnerArrayType Null { get { return new OuterMapOfSingleInnerArrayType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(OuterMapOfSingleInnerArrayType v) { return v.Value; }
@@ -64,7 +64,7 @@ namespace OAFComplex.Models.Shared
         public List<int>? ArrayOfint32 { get; set; } 
         public Orbit? Orbit { get; set; } 
 
-        public OuterMapOfSingleInnerArrayType Type {get; set; }
+        public OuterMapOfSingleInnerArrayType Type { get; set; }
 
 
         public static OuterMapOfSingleInnerArray CreateArrayOfint32(List<int> arrayOfint32) {
@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Orbit? orbit = JsonConvert.DeserializeObject<Orbit>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Orbit), "string")});
+                    Orbit? orbit = JsonConvert.DeserializeObject<Orbit>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Orbit))});
                     return new OuterMapOfSingleInnerArray(OuterMapOfSingleInnerArrayType.Orbit) {
                         Orbit = orbit
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<int>? arrayOfint32 = JsonConvert.DeserializeObject<List<int>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<int>), "string")});
+                    List<int>? arrayOfint32 = JsonConvert.DeserializeObject<List<int>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<int>))});
                     return new OuterMapOfSingleInnerArray(OuterMapOfSingleInnerArrayType.ArrayOfint32) {
                         ArrayOfint32 = arrayOfint32
                     };
@@ -159,6 +159,5 @@ namespace OAFComplex.Models.Shared
         }
 
     }
-
 
 }
