@@ -58,10 +58,10 @@ namespace OAFComplex
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.1";
-        private const string _sdkGenVersion = "2.291.0";
+        private const string _sdkVersion = "0.7.0";
+        private const string _sdkGenVersion = "2.292.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.6.1 2.291.0 1.0.0 OAF-Complex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.7.0 2.292.0 1.0.0 OAFComplex";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
 

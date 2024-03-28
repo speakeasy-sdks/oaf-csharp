@@ -29,7 +29,7 @@ SendCollectCombinedRequestBody req = new SendCollectCombinedRequestBody() {
     },
     BodyScalar = new List<Dictionary<string, BodyScalar>>() {
         new Dictionary<string, BodyScalar>() {
-            { "key", Shared.CreateBodyScalarBoolean(
+            { "key", BodyScalar.CreateBodyScalarBoolean(
             false,
             ) },
         },
@@ -72,7 +72,7 @@ SendCombinedRequestBody req = new SendCombinedRequestBody() {
     },
     BodyScalar = new List<Dictionary<string, SendCombinedRequestBodyBodyScalar>>() {
         new Dictionary<string, SendCombinedRequestBodyBodyScalar>() {
-            { "key", Shared.CreateSendCombinedRequestBodyBodyScalarStr(
+            { "key", SendCombinedRequestBodyBodyScalar.CreateSendCombinedRequestBodyBodyScalarStr(
             "<value>",
             ) },
         },
@@ -172,7 +172,7 @@ var sdk = new OAFComplexSDK();
 
 List<Dictionary<string, SendScalarParamRequestBody>> req = new List<Dictionary<string, SendScalarParamRequestBody>>() {
     new Dictionary<string, SendScalarParamRequestBody>() {
-        { "key", Operations.CreateSendScalarParamRequestBodyStr(
+        { "key", SendScalarParamRequestBody.CreateSendScalarParamRequestBodyStr(
         "<value>",
         ) },
     },
@@ -211,7 +211,7 @@ var sdk = new OAFComplexSDK();
 
 SendinModelRequestBody req = new SendinModelRequestBody() {
     MixedModel = new MixedModel() {
-        AllInnerArrayOfMap = Shared.CreateAllInnerArrayOfMapArrayOfmapOfboolean(
+        AllInnerArrayOfMap = AllInnerArrayOfMap.CreateAllInnerArrayOfMapArrayOfmapOfboolean(
                 new List<Dictionary<string, bool>>() {
                     new Dictionary<string, bool>() {
                         { "key", false },
@@ -219,7 +219,7 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
                 },
         ),
         AllInnerArrayOfMap2 = new Dictionary<string, AllInnerArrayOfMap2>() {
-            { "key", Shared.CreateAllInnerArrayOfMap2ArrayOfmapOfVehicle(
+            { "key", AllInnerArrayOfMap2.CreateAllInnerArrayOfMap2ArrayOfmapOfVehicle(
                 new List<Dictionary<string, Vehicle>>() {
                     new Dictionary<string, Vehicle>() {
                         { "key", new Vehicle() {
@@ -229,15 +229,15 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
                 },
             ) },
         },
-        MultiAnyOf = Shared.CreateMultiAnyOfOne(
-                Shared.CreateOneCar(
+        MultiAnyOf = MultiAnyOf.CreateMultiAnyOfOne(
+                One.CreateOneCar(
                             new Car() {
                                 HaveTrunk = false,
                                 NumberOfTyres = "<value>",
                             },
                 ),
         ),
-        MultiOneOfAnyOf = Shared.CreateMultiOneOfAnyOfMorning(
+        MultiOneOfAnyOf = MultiOneOfAnyOf.CreateMultiOneOfAnyOfMorning(
                 new Morning() {
                     EndsAt = "<value>",
                     OfferTeaBreak = false,
@@ -246,13 +246,13 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
                 },
         ),
         OuterMapOfSingleInnerArray = new Dictionary<string, OuterMapOfSingleInnerArray>() {
-            { "key", Shared.CreateOuterMapOfSingleInnerArrayOrbit(
+            { "key", OuterMapOfSingleInnerArray.CreateOuterMapOfSingleInnerArrayOrbit(
                 new Orbit() {
                     NumberOfElectrons = 393577,
                 },
             ) },
         },
-        SingleInnerMapOfArray = Shared.CreateSingleInnerMapOfArrayMapOfarrayOfint32(
+        SingleInnerMapOfArray = SingleInnerMapOfArray.CreateSingleInnerMapOfArrayMapOfarrayOfint32(
                 new Dictionary<string, List<int>>() {
                     { "key", new List<int>() {
                         12005,
@@ -261,7 +261,7 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
         ),
     },
     NonScalarModel = new NonScalarModel() {
-        AllInnerArrayOfMap = Shared.CreateNonScalarModelAllInnerArrayOfMapArrayOfmapOfOrbit(
+        AllInnerArrayOfMap = NonScalarModelAllInnerArrayOfMap.CreateNonScalarModelAllInnerArrayOfMapArrayOfmapOfOrbit(
                 new List<Dictionary<string, Orbit>>() {
                     new Dictionary<string, Orbit>() {
                         { "key", new Orbit() {
@@ -271,7 +271,7 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
                 },
         ),
         AllInnerArrayOfMap2 = new Dictionary<string, NonScalarModelAllInnerArrayOfMap2>() {
-            { "key", Shared.CreateNonScalarModelAllInnerArrayOfMap2ArrayOfmapOfVehicle(
+            { "key", NonScalarModelAllInnerArrayOfMap2.CreateNonScalarModelAllInnerArrayOfMap2ArrayOfmapOfVehicle(
                 new List<Dictionary<string, Vehicle>>() {
                     new Dictionary<string, Vehicle>() {
                         { "key", new Vehicle() {
@@ -281,14 +281,14 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
                 },
             ) },
         },
-        MultiAnyOf = Shared.CreateNonScalarModelMultiAnyOfNonScalarModel1(
-                Shared.CreateNonScalarModel1Atom(
+        MultiAnyOf = NonScalarModelMultiAnyOf.CreateNonScalarModelMultiAnyOfNonScalarModel1(
+                NonScalarModel1.CreateNonScalarModel1Atom(
                             new Atom() {
                                 NumberOfElectrons = 156368,
                             },
                 ),
         ),
-        MultiOneOfAnyOf = Shared.CreateNonScalarModelMultiOneOfAnyOfMorning(
+        MultiOneOfAnyOf = NonScalarModelMultiOneOfAnyOf.CreateNonScalarModelMultiOneOfAnyOfMorning(
                 new Morning() {
                     EndsAt = "<value>",
                     OfferTeaBreak = false,
@@ -299,7 +299,7 @@ SendinModelRequestBody req = new SendinModelRequestBody() {
         OuterMapOfSingleInnerArray = new Dictionary<string, NonScalarModelOuterMapOfSingleInnerArray>() {
 
         },
-        SingleInnerMapOfArray = Shared.CreateNonScalarModelSingleInnerMapOfArrayMapOfAtom(
+        SingleInnerMapOfArray = NonScalarModelSingleInnerMapOfArray.CreateNonScalarModelSingleInnerMapOfArrayMapOfAtom(
                 new Dictionary<string, Atom>() {
                     { "key", new Atom() {
                         NumberOfElectrons = 2189,
