@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<double>? arrayOfnumber = JsonConvert.DeserializeObject<List<double>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<double>))});
+                    List<double>? arrayOfnumber = ResponseBodyDeserializer.Deserialize<List<double>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelOuterMapOfSingleInnerArray(ScalarModelOuterMapOfSingleInnerArrayType.ArrayOfnumber) {
                         ArrayOfnumber = arrayOfnumber
                     };

@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, List<int>>? mapOfarrayOfint32 = JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, List<int>>))});
+                    Dictionary<string, List<int>>? mapOfarrayOfint32 = ResponseBodyDeserializer.Deserialize<Dictionary<string, List<int>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new SingleInnerMapOfArray(SingleInnerMapOfArrayType.MapOfarrayOfint32) {
                         MapOfarrayOfint32 = mapOfarrayOfint32
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, Orbit>? mapOfOrbit = JsonConvert.DeserializeObject<Dictionary<string, Orbit>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, Orbit>))});
+                    Dictionary<string, Orbit>? mapOfOrbit = ResponseBodyDeserializer.Deserialize<Dictionary<string, Orbit>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new SingleInnerMapOfArray(SingleInnerMapOfArrayType.MapOfOrbit) {
                         MapOfOrbit = mapOfOrbit
                     };

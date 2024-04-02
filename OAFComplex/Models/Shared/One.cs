@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
+                    Car? car = ResponseBodyDeserializer.Deserialize<Car>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new One(OneType.Car) {
                         Car = car
                     };

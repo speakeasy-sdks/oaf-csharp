@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
+                    Morning? morning = ResponseBodyDeserializer.Deserialize<Morning>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new MultiOneOfAnyOf(MultiOneOfAnyOfType.Morning) {
                         Morning = morning
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    MixedModel1? mixedModel1 = JsonConvert.DeserializeObject<MixedModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(MixedModel1))});
+                    MixedModel1? mixedModel1 = ResponseBodyDeserializer.Deserialize<MixedModel1>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new MultiOneOfAnyOf(MultiOneOfAnyOfType.MixedModel1) {
                         MixedModel1 = mixedModel1
                     };

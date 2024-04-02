@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Car? car = JsonConvert.DeserializeObject<Car>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Car))});
+                    Car? car = ResponseBodyDeserializer.Deserialize<Car>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new NonScalarModelSchemas1(NonScalarModelSchemas1Type.Car) {
                         Car = car
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom))});
+                    Atom? atom = ResponseBodyDeserializer.Deserialize<Atom>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new NonScalarModelSchemas1(NonScalarModelSchemas1Type.Atom) {
                         Atom = atom
                     };

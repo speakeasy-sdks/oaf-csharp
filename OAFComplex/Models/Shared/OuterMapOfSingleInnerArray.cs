@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Orbit? orbit = JsonConvert.DeserializeObject<Orbit>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Orbit))});
+                    Orbit? orbit = ResponseBodyDeserializer.Deserialize<Orbit>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfSingleInnerArray(OuterMapOfSingleInnerArrayType.Orbit) {
                         Orbit = orbit
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<int>? arrayOfint32 = JsonConvert.DeserializeObject<List<int>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<int>))});
+                    List<int>? arrayOfint32 = ResponseBodyDeserializer.Deserialize<List<int>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfSingleInnerArray(OuterMapOfSingleInnerArrayType.ArrayOfint32) {
                         ArrayOfint32 = arrayOfint32
                     };

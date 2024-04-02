@@ -147,7 +147,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
+                    object? any = ResponseBodyDeserializer.Deserialize<object>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new SendCombinedRequestBodyBodyScalar(SendCombinedRequestBodyBodyScalarType.Any) {
                         Any = any
                     };

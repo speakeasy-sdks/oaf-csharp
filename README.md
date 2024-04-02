@@ -71,8 +71,6 @@ var res = await sdk.Receiver.MixedModelAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -93,6 +91,47 @@ Some of the server options above contain variables. If you want to set the value
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
+
+### Example
+
+```csharp
+using OAFComplex;
+using System;
+using OAFComplex.Models.Errors;
+using OAFComplex.Models.Operations;
+using OAFComplex.Models.Shared;
+
+var sdk = new OAFComplexSDK();
+
+MixedModelRequest req = new MixedModelRequest() {
+    Case = CaseEnum.CaseA,
+};
+
+try
+{
+    var res = await sdk.Receiver.MixedModelAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    }
+    else if (ex is OAFComplex.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

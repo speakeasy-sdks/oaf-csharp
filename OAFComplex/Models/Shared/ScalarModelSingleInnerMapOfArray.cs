@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, List<double>>? mapOfarrayOfnumber = JsonConvert.DeserializeObject<Dictionary<string, List<double>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, List<double>>))});
+                    Dictionary<string, List<double>>? mapOfarrayOfnumber = ResponseBodyDeserializer.Deserialize<Dictionary<string, List<double>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelSingleInnerMapOfArray(ScalarModelSingleInnerMapOfArrayType.MapOfarrayOfnumber) {
                         MapOfarrayOfnumber = mapOfarrayOfnumber
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, double>? mapOfnumber = JsonConvert.DeserializeObject<Dictionary<string, double>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, double>))});
+                    Dictionary<string, double>? mapOfnumber = ResponseBodyDeserializer.Deserialize<Dictionary<string, double>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelSingleInnerMapOfArray(ScalarModelSingleInnerMapOfArrayType.MapOfnumber) {
                         MapOfnumber = mapOfnumber
                     };

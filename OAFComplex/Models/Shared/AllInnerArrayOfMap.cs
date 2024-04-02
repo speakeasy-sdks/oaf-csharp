@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, bool>>? arrayOfmapOfboolean = JsonConvert.DeserializeObject<List<Dictionary<string, bool>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, bool>>))});
+                    List<Dictionary<string, bool>>? arrayOfmapOfboolean = ResponseBodyDeserializer.Deserialize<List<Dictionary<string, bool>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new AllInnerArrayOfMap(AllInnerArrayOfMapType.ArrayOfmapOfboolean) {
                         ArrayOfmapOfboolean = arrayOfmapOfboolean
                     };
@@ -129,7 +129,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, Vehicle>>? arrayOfmapOfVehicle = JsonConvert.DeserializeObject<List<Dictionary<string, Vehicle>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, Vehicle>>))});
+                    List<Dictionary<string, Vehicle>>? arrayOfmapOfVehicle = ResponseBodyDeserializer.Deserialize<List<Dictionary<string, Vehicle>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new AllInnerArrayOfMap(AllInnerArrayOfMapType.ArrayOfmapOfVehicle) {
                         ArrayOfmapOfVehicle = arrayOfmapOfVehicle
                     };
@@ -142,7 +142,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
+                    object? any = ResponseBodyDeserializer.Deserialize<object>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new AllInnerArrayOfMap(AllInnerArrayOfMapType.Any) {
                         Any = any
                     };

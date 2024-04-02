@@ -102,7 +102,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    ScalarModel1? scalarModel1 = JsonConvert.DeserializeObject<ScalarModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(ScalarModel1))});
+                    ScalarModel1? scalarModel1 = ResponseBodyDeserializer.Deserialize<ScalarModel1>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelMultiAnyOf(ScalarModelMultiAnyOfType.ScalarModel1) {
                         ScalarModel1 = scalarModel1
                     };

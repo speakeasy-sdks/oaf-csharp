@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, Postman>? mapOfPostman = JsonConvert.DeserializeObject<Dictionary<string, Postman>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, Postman>))});
+                    Dictionary<string, Postman>? mapOfPostman = ResponseBodyDeserializer.Deserialize<Dictionary<string, Postman>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray2(OuterMapOfArray2Type.MapOfPostman) {
                         MapOfPostman = mapOfPostman
                     };
@@ -141,7 +141,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, Person>? mapOfPerson = JsonConvert.DeserializeObject<Dictionary<string, Person>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, Person>))});
+                    Dictionary<string, Person>? mapOfPerson = ResponseBodyDeserializer.Deserialize<Dictionary<string, Person>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray2(OuterMapOfArray2Type.MapOfPerson) {
                         MapOfPerson = mapOfPerson
                     };
@@ -154,7 +154,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, double>? mapOfnumber = JsonConvert.DeserializeObject<Dictionary<string, double>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, double>))});
+                    Dictionary<string, double>? mapOfnumber = ResponseBodyDeserializer.Deserialize<Dictionary<string, double>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray2(OuterMapOfArray2Type.MapOfnumber) {
                         MapOfnumber = mapOfnumber
                     };
@@ -167,7 +167,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
+                    object? any = ResponseBodyDeserializer.Deserialize<object>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray2(OuterMapOfArray2Type.Any) {
                         Any = any
                     };

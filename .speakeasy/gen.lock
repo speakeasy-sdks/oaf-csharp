@@ -3,16 +3,16 @@ id: 6e826e33-ae61-4b56-8740-6ce7a9c28f54
 management:
   docChecksum: b51eccce0aa90491fdcc1ed09d7f22e2
   docVersion: 1.0.0
-  speakeasyVersion: 1.228.1
-  generationVersion: 2.292.0
-  releaseVersion: 0.7.0
-  configChecksum: 7386f54c7a9a8dc7c684f9797649499b
+  speakeasyVersion: 1.231.1
+  generationVersion: 2.295.1
+  releaseVersion: 0.8.0
+  configChecksum: 123cf9b3b23449d362c2829d860cf801
   repoURL: https://github.com/speakeasy-sdks/oaf-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.5.0
+    core: 3.6.0
     globalServerURLs: 2.82.3
     unions: 0.0.2
 generatedFiles:
@@ -29,12 +29,14 @@ generatedFiles:
   - OAFComplex/Utils/HeaderSerializer.cs
   - OAFComplex/Utils/IsoDateTimeSerializer.cs
   - OAFComplex/Utils/RequestBodySerializer.cs
+  - OAFComplex/Utils/ResponseBodyDeserializer.cs
   - OAFComplex/Utils/SecuritySerializer.cs
   - OAFComplex/Utils/SpeakeasyHttpClient.cs
   - OAFComplex/Utils/SpeakeasyMetadata.cs
   - OAFComplex/Utils/URLBuilder.cs
   - OAFComplex/Utils/Utilities.cs
   - OAFComplex/OAFComplex.csproj
+  - OAFComplex/Models/Errors/SDKException.cs
   - OAFComplex/Models/Operations/MixedModelRequest.cs
   - OAFComplex/Models/Operations/MixedModelResponse.cs
   - OAFComplex/Models/Operations/MixedParamRequest.cs

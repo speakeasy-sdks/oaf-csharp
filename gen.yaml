@@ -11,8 +11,9 @@ generation:
     oAuth2ClientCredentialsEnabled: false
   baseServerURL: ""
 csharp:
-  version: 0.7.0
+  version: 0.8.0
   author: Test
+  clientServerStatusCodesAsErrors: true
   company: ""
   dotnetVersion: net5.0
   flattenGlobalSecurity: false

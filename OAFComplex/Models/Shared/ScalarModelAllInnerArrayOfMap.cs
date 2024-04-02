@@ -115,7 +115,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, int>>? arrayOfmapOfint32 = JsonConvert.DeserializeObject<List<Dictionary<string, int>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, int>>))});
+                    List<Dictionary<string, int>>? arrayOfmapOfint32 = ResponseBodyDeserializer.Deserialize<List<Dictionary<string, int>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelAllInnerArrayOfMap(ScalarModelAllInnerArrayOfMapType.ArrayOfmapOfint32) {
                         ArrayOfmapOfint32 = arrayOfmapOfint32
                     };
@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Dictionary<string, string>>? arrayOfmapOfstr = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Dictionary<string, string>>))});
+                    List<Dictionary<string, string>>? arrayOfmapOfstr = ResponseBodyDeserializer.Deserialize<List<Dictionary<string, string>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelAllInnerArrayOfMap(ScalarModelAllInnerArrayOfMapType.ArrayOfmapOfstr) {
                         ArrayOfmapOfstr = arrayOfmapOfstr
                     };
@@ -141,7 +141,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
+                    object? any = ResponseBodyDeserializer.Deserialize<object>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelAllInnerArrayOfMap(ScalarModelAllInnerArrayOfMapType.Any) {
                         Any = any
                     };

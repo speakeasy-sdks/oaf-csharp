@@ -103,7 +103,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Morning? morning = JsonConvert.DeserializeObject<Morning>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Morning))});
+                    Morning? morning = ResponseBodyDeserializer.Deserialize<Morning>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new NonScalarModelMultiAnyOf(NonScalarModelMultiAnyOfType.Morning) {
                         Morning = morning
                     };
@@ -116,7 +116,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    NonScalarModel1? nonScalarModel1 = JsonConvert.DeserializeObject<NonScalarModel1>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(NonScalarModel1))});
+                    NonScalarModel1? nonScalarModel1 = ResponseBodyDeserializer.Deserialize<NonScalarModel1>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new NonScalarModelMultiAnyOf(NonScalarModelMultiAnyOfType.NonScalarModel1) {
                         NonScalarModel1 = nonScalarModel1
                     };

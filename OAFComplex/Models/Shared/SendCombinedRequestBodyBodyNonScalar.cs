@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Atom? atom = JsonConvert.DeserializeObject<Atom>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Atom))});
+                    Atom? atom = ResponseBodyDeserializer.Deserialize<Atom>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new SendCombinedRequestBodyBodyNonScalar(SendCombinedRequestBodyBodyNonScalarType.Atom) {
                         Atom = atom
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    List<Atom>? arrayOfAtom = JsonConvert.DeserializeObject<List<Atom>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(List<Atom>))});
+                    List<Atom>? arrayOfAtom = ResponseBodyDeserializer.Deserialize<List<Atom>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new SendCombinedRequestBodyBodyNonScalar(SendCombinedRequestBodyBodyNonScalarType.ArrayOfAtom) {
                         ArrayOfAtom = arrayOfAtom
                     };

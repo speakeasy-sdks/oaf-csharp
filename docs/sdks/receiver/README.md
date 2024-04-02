@@ -42,7 +42,11 @@ var res = await sdk.Receiver.MixedModelAsync(req);
 ### Response
 
 **[MixedModelResponse](../../Models/Operations/MixedModelResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## MixedParam
 
@@ -76,7 +80,11 @@ var res = await sdk.Receiver.MixedParamAsync(req);
 ### Response
 
 **[MixedParamResponse](../../Models/Operations/MixedParamResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## NonScalarModel
 
@@ -110,7 +118,11 @@ var res = await sdk.Receiver.NonScalarModelAsync(req);
 ### Response
 
 **[NonScalarModelResponse](../../Models/Operations/NonScalarModelResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## NonScalarParam
 
@@ -144,7 +156,11 @@ var res = await sdk.Receiver.NonScalarParamAsync(req);
 ### Response
 
 **[NonScalarParamResponse](../../Models/Operations/NonScalarParamResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## ScalarModel
 
@@ -178,7 +194,11 @@ var res = await sdk.Receiver.ScalarModelAsync(req);
 ### Response
 
 **[ScalarModelResponse](../../Models/Operations/ScalarModelResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## ScalarParam
 
@@ -212,4 +232,8 @@ var res = await sdk.Receiver.ScalarParamAsync(req);
 ### Response
 
 **[ScalarParamResponse](../../Models/Operations/ScalarParamResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |

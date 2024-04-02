@@ -104,7 +104,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, List<Atom>>? mapOfarrayOfAtom = JsonConvert.DeserializeObject<Dictionary<string, List<Atom>>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, List<Atom>>))});
+                    Dictionary<string, List<Atom>>? mapOfarrayOfAtom = ResponseBodyDeserializer.Deserialize<Dictionary<string, List<Atom>>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new NonScalarModelSingleInnerMapOfArray(NonScalarModelSingleInnerMapOfArrayType.MapOfarrayOfAtom) {
                         MapOfarrayOfAtom = mapOfarrayOfAtom
                     };
@@ -117,7 +117,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, Atom>? mapOfAtom = JsonConvert.DeserializeObject<Dictionary<string, Atom>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, Atom>))});
+                    Dictionary<string, Atom>? mapOfAtom = ResponseBodyDeserializer.Deserialize<Dictionary<string, Atom>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new NonScalarModelSingleInnerMapOfArray(NonScalarModelSingleInnerMapOfArrayType.MapOfAtom) {
                         MapOfAtom = mapOfAtom
                     };

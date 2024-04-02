@@ -115,7 +115,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, int>? mapOfint32 = JsonConvert.DeserializeObject<Dictionary<string, int>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, int>))});
+                    Dictionary<string, int>? mapOfint32 = ResponseBodyDeserializer.Deserialize<Dictionary<string, int>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelOuterMapOfArray2(ScalarModelOuterMapOfArray2Type.MapOfint32) {
                         MapOfint32 = mapOfint32
                     };
@@ -128,7 +128,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Dictionary<string, bool>? mapOfboolean = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Dictionary<string, bool>))});
+                    Dictionary<string, bool>? mapOfboolean = ResponseBodyDeserializer.Deserialize<Dictionary<string, bool>>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelOuterMapOfArray2(ScalarModelOuterMapOfArray2Type.MapOfboolean) {
                         MapOfboolean = mapOfboolean
                     };
@@ -141,7 +141,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
+                    object? any = ResponseBodyDeserializer.Deserialize<object>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new ScalarModelOuterMapOfArray2(ScalarModelOuterMapOfArray2Type.Any) {
                         Any = any
                     };

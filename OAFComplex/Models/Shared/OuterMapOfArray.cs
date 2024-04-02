@@ -127,7 +127,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Person? person = JsonConvert.DeserializeObject<Person>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Person))});
+                    Person? person = ResponseBodyDeserializer.Deserialize<Person>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray(OuterMapOfArrayType.Person) {
                         Person = person
                     };
@@ -140,7 +140,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    Postman? postman = JsonConvert.DeserializeObject<Postman>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(Postman))});
+                    Postman? postman = ResponseBodyDeserializer.Deserialize<Postman>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray(OuterMapOfArrayType.Postman) {
                         Postman = postman
                     };
@@ -161,7 +161,7 @@ namespace OAFComplex.Models.Shared
                 }
                 try
                 {
-                    object? any = JsonConvert.DeserializeObject<object>(json, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, MissingMemberHandling = MissingMemberHandling.Error, Converters = Utilities.GetJsonConverters(typeof(object))});
+                    object? any = ResponseBodyDeserializer.Deserialize<object>(json, missingMemberHandling: MissingMemberHandling.Error);
                     return new OuterMapOfArray(OuterMapOfArrayType.Any) {
                         Any = any
                     };

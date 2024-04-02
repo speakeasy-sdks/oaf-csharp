@@ -11,6 +11,7 @@
 namespace OAFComplex
 {
     using Newtonsoft.Json;
+    using OAFComplex.Models.Errors;
     using OAFComplex.Utils;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -81,10 +82,10 @@ namespace OAFComplex
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.7.0";
-        private const string _sdkGenVersion = "2.292.0";
+        private const string _sdkVersion = "0.8.0";
+        private const string _sdkGenVersion = "2.295.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.7.0 2.292.0 1.0.0 OAFComplex";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.8.0 2.295.1 1.0.0 OAFComplex";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;

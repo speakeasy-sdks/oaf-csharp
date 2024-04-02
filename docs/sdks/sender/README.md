@@ -51,7 +51,11 @@ var res = await sdk.Sender.SendCollectCombinedAsync(req);
 ### Response
 
 **[SendCollectCombinedResponse](../../Models/Operations/SendCollectCombinedResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## SendCombined
 
@@ -94,7 +98,11 @@ var res = await sdk.Sender.SendCombinedAsync(req);
 ### Response
 
 **[SendCombinedResponse](../../Models/Operations/SendCombinedResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## SendMixedParam
 
@@ -124,7 +132,11 @@ var res = await sdk.Sender.SendMixedParamAsync(req);
 ### Response
 
 **[SendMixedParamResponse](../../Models/Operations/SendMixedParamResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## SendNonScalarParam
 
@@ -157,7 +169,11 @@ var res = await sdk.Sender.SendNonScalarParamAsync(req);
 ### Response
 
 **[SendNonScalarParamResponse](../../Models/Operations/SendNonScalarParamResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## SendScalarParam
 
@@ -193,7 +209,11 @@ var res = await sdk.Sender.SendScalarParamAsync(req);
 ### Response
 
 **[SendScalarParamResponse](../../Models/Operations/SendScalarParamResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
 
 ## SendinModel
 
@@ -324,4 +344,8 @@ var res = await sdk.Sender.SendinModelAsync(req);
 ### Response
 
 **[SendinModelResponse](../../Models/Operations/SendinModelResponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| OAFComplex.Models.Errors.SDKException | 4xx-5xx                               | */*                                   |
